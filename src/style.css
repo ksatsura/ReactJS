@@ -1,0 +1,30 @@
+.title {
+    color: blue;
+    text-align: center;
+    font-family: verdana;
+    font-size: 20px;
+}
+
+.message {
+    color: green;
+    text-align: center;
+    font-family: verdana;
+    font-size: 15px;
+}
+
+.conclusion {
+    color: orangered;
+    text-align: center;
+    font-family: verdana;
+    font-size: 18px;
+}
+
+.app {
+    background-color: burlywood;
+}
+
+.task {
+    text-align: left;
+}
+
+  
