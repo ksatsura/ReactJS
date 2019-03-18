@@ -7,12 +7,12 @@ import './style.css';
 
 //constants
 const tasks = [
-    'Create React component using React.createElement',
-    'Create React component using React.Component',
-    'Create React component using React.PureComponen',
-    'Cretae React component using functional components'
+    'Install React, Redux, React-Redux, React-Router, Jest',
+    'Configure webpack',
+    'Configure babel, configure tests script',
+    'Have dev and prod build commands (use evn variables)'
 ];
-const deadLine = "The deadline of this task is March 11, 2019";
+const deadLine = "The deadline of this task is March 18, 2019";
 
 const app = () => {
     return (
