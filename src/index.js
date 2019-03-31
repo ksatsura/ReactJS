@@ -8,5 +8,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 ReactDom.render(<App />, document.getElementById('app'));
-
-
