@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --env.NODE_ENV=local --env.development --config webpack.config.js",
-    "prod": "webpack --env.NODE_ENV=local --env.production --progress",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "prod": "webpack --progress --config webpack.prod.js",
     "test": "jest"
   },
   "author": "kate_satsura",
@@ -22,6 +22,7 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
     "babel-preset-es2015": "^6.24.1",
@@ -34,6 +35,7 @@
     "react-test-renderer": "^16.8.4",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
+    "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
