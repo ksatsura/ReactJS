@@ -21,8 +21,8 @@ class SearchFilter extends Component {
         return (
             <div className='search-filter'>
                 <p className='search-filter-title'>search by</p>
-                <FilterButton id='title' styles={ this.state.focused === 'title' ? 'search-filter-btn-title focused' : 'search-filter-btn-title'} handleClick={this.handleClick}/>
-                <FilterButton id='genre' styles={ this.state.focused === 'genre' ? 'search-filter-btn-genre focused' : 'search-filter-btn-genre'} handleClick={this.handleClick}/>
+                <FilterButton id='title' styles={ this.state.focused === 'title' ? 'search-filter-btn-title focused' : 'search-filter-btn-title'} onClick={this.handleClick}/>
+                <FilterButton id='genre' styles={ this.state.focused === 'genre' ? 'search-filter-btn-genre focused' : 'search-filter-btn-genre'} onClick={this.handleClick}/>
             </div>
         );
     }

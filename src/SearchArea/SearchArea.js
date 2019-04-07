@@ -18,6 +18,7 @@ class SearchArea extends PureComponent {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
     }

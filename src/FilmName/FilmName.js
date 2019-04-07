@@ -4,7 +4,7 @@ import '../style.css';
 
 const filmName = (props) => {
 
-    return <p onClick={props.handleClick}>{props.title}</p>;
+    return <p>{props.title}</p>;
 };
 
 export default filmName;

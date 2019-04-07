@@ -8,7 +8,7 @@ const assetData = (props) => {
         <div className='asset-data'>
             <div className='asset-name-rating'>
                 <p className='asset-name'>{props.name}</p>
-                <p className='asset-rating'>{props.rating}</p>
+                <span className='asset-rating'>{props.rating}</span>
             </div>
             <p className='asset-nomination'>{props.nomination}</p>
             <div className='asset-date-duration'>

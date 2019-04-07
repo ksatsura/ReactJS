@@ -23,11 +23,10 @@ class SearchResults extends Component {
                 <p className='results-title'>{this.props.count + ' movies found'}</p>
                 <div className='results-filter'> 
                     <p className='results-filter-title'>Sort by</p>
-                    <FilterButton id='release date' styles={ this.state.selected === 'release date' ? 'search-results-btn selected' : 'search-results-btn'} handleClick={this.handleClick} />
-                    <FilterButton id='rating' styles={ this.state.selected === 'rating' ? 'search-results-btn selected' : 'search-results-btn'} handleClick={this.handleClick} />
+                    <FilterButton id='release-date' styles={ this.state.selected === 'release-date' ? 'search-results-btn selected' : 'search-results-btn'} onClick={this.handleClick} />
+                    <FilterButton id='rating' styles={ this.state.selected === 'rating' ? 'search-results-btn selected' : 'search-results-btn'} onClick={this.handleClick} />
                 </div>
             </div>
-    
         );
     }
 }

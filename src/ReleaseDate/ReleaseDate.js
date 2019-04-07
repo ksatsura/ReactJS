@@ -4,7 +4,7 @@ import '../style.css';
 
 const releaseDate = (props) => {
 
-    return <p className='release-date' onClick={props.handleClick}>{props.date}</p>;
+    return <p className='release-date'>{props.date}</p>;
 };
 
 export default releaseDate;
