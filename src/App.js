@@ -71,7 +71,7 @@ class App extends Component {
                     {topElement}
                 </ErrorBoundary>
                 <ErrorBoundary>
-                    {this.state.count > 0 ? resultArea : <div className='search-results'></div>}
+                    {this.state.count > 0 ? resultArea : <div id='no-assets' className='search-results'></div>}
                 </ErrorBoundary>
                 <ErrorBoundary>
                     <div className='films-container'>

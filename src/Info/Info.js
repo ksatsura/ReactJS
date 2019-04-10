@@ -15,7 +15,7 @@ const info = (props) => {
             </div>
             <Genre genre={props.genre} />
         </div>
-    )
+    );
 };
 
 export default info;

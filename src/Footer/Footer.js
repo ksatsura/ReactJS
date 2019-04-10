@@ -7,7 +7,7 @@ const footer = (props) => {
         <div className='footer'>
             <CompanyTitle />
         </div>
-    )
+    );
 };
 
 export default footer;
