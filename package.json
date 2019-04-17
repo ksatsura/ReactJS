@@ -1,27 +1,5 @@
 {
 		"name": "react-app",
-		"jest": {
-				"moduleNameMapper": {
-						"^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
-						"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/imageMock.js",
-						"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-				},
-				"setupFilesAfterEnv": [
-						"<rootDir>/test_setup.js"
-				],
-				"testPathIgnorePatterns": [
-						"/node_modules/"
-				],
-				"collectCoverage": true,
-				"verbose": true,
-				"unmockedModulePathPatterns": [
-						"<rootDir>/node_modules/react/",
-						"<rootDir>/node_modules/react-dom/",
-						"<rootDir>/node_modules/react-addons-test-utils/",
-						"<rootDir>/node_modules/fbjs",
-						"<rootDir>/node_modules/core-js"
-				]
-		},
 		"version": "1.0.0",
 		"description": "",
 		"main": "index.js",
@@ -34,15 +12,19 @@
 		"author": "kate_satsura",
 		"license": "ISC",
 		"dependencies": {
+				"cross-fetch": "^3.0.2",
 				"express": "^4.16.4",
 				"react": "^16.8.4",
 				"react-dom": "^16.8.4",
 				"react-redux": "^6.0.1",
 				"react-router": "^4.3.1",
-				"redux": "^4.0.1"
+				"redux": "^4.0.1",
+				"redux-logger": "^3.0.6",
+				"redux-thunk": "^2.3.0"
 		},
 		"devDependencies": {
 				"@babel/core": "^7.3.4",
+				"@babel/plugin-proposal-class-properties": "^7.4.0",
 				"@babel/preset-env": "^7.3.4",
 				"@babel/preset-react": "^7.0.0",
 				"babel-eslint": "^10.0.1",

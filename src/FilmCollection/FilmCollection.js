@@ -1,23 +1,25 @@
 //imports
-import React, {Component} from 'react';
+import React from 'react';
 import FilmAsset from '../FilmAsset/FilmAsset';
 import '../style.css';
 //constants
 const key = 'qwert1';
 
-class FilmCollection extends Component {
-    
-    constructor(props){
-        super(props);
-    }
+const FilmCollection = (props) => {
 
-    render() {
+    const { assets, assetsNumber, assetsSameGenre, isAssetClicked } = props;
 
-        return (
-            <ul className='film-collection'>
-                { this.props.assets.map((asset, i) => <FilmAsset key={key+i} url={asset.imgUrl} title={asset.title} genre={asset.genre} releaseDate={asset.releaseDate} handleClick={this.props.handleClick} />) }
-            </ul>);
-    }
-}
+    const films = isAssetClicked ? assetsSameGenre : assets;
+
+    const collection = ( <ul className='film-collection' >
+        { films.map((film, i) => <FilmAsset key={key+i} asset={film} />) }
+    </ul>);
+
+    return (
+        <div className='films-container'>
+            { assetsNumber > 0 ? collection : <p className='no-films'>No films found</p> }
+        </div>
+    );   
+};
 
 export default FilmCollection;

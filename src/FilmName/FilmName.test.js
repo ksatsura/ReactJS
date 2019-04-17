@@ -1,19 +1,25 @@
 import React from 'react';
-import FilmName from './FilmName.js';
-import Adapter from 'enzyme-adapter-react-16';
+import FilmName from './FilmName';
 import {shallow} from 'enzyme';
 
-describe('FilmName component', () => {
+describe('FilmName.js', () => {
 
-    let title;
+    const props = {
+        title: '',
+    };
 
-    beforeAll(() => {
-        title= '';
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<FilmName title={title} />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<FilmName {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<FilmName {...props} isMobile />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

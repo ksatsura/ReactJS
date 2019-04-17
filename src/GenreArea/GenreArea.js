@@ -2,11 +2,9 @@
 import React from 'react';
 import '../style.css';
 
-const genreArea = (props) => {
+export const GenreArea = (props) => {
 
-    return (<div className='search-results'>
-        <p className='asset-genre'>Films by {props.genre} genre</p>
-    </div>);
+    return <p className='asset-genre'>Films by {props.genre} genre</p>;
 };
 
-export default genreArea;
+export default GenreArea;

@@ -1,36 +1,42 @@
 import React from 'react';
-import FilmAsset from './FilmAsset.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import  { FilmAsset } from './FilmAsset';
+import Poster from '../Poster/Poster';
+import Info from '../Info/Info';
+import { shallow } from 'enzyme';
 
-describe('FilmAsset component', () => {
-    let url;
-    let title;
-    let releaseDate;
-    let genre;
-    let key;
-    let mockHandleClick;
+describe('FilmAsset.js', () => {
+    
+    const props = {
+        asset: {
+            poster_path: ''
+        },
+        handleClick: jest.fn(),
+    };
 
-    beforeAll(() => {
-        title= '';
-        releaseDate= '';
-        genre='';
-        key='';
-        mockHandleClick=jest.fn();
-        url='';
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<FilmAsset key={key} url={url} title={title} genre={genre} releaseDate={releaseDate} handleClick={mockHandleClick} />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<FilmAsset {...props} />);
+
+            expect(component).toMatchSnapshot();
+            expect(component.find(Info).length).toEqual(1);
+            expect(component.find(Poster).length).toEqual(1);
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<FilmAsset {...props} isMobile />);
+
+            expect(component).toMatchSnapshot();
+            expect(component.find(Info).length).toEqual(1);
+            expect(component.find(Poster).length).toEqual(1);
+        });
     });
 
     it('test film asset click event', () => {
-        const component = shallow(<FilmAsset key={key} url={url} title={title} genre={genre} releaseDate={releaseDate} handleClick={mockHandleClick} />);
+        const component = shallow(<FilmAsset {...props} />);
 
         component.find('.film-asset').simulate('click');
-        expect(mockHandleClick.mock.calls.length).toEqual(1);
+        expect(props.handleClick.mock.calls.length).toEqual(1);
     });
 });
 

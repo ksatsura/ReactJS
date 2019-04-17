@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilmCollection component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`FilmCollection.js renders renders genre collection for desktop 1`] = `ShallowWrapper {}`;
+
+exports[`FilmCollection.js renders renders genre collection for mobile 1`] = `ShallowWrapper {}`;
+
+exports[`FilmCollection.js renders renders no collection for desktop 1`] = `ShallowWrapper {}`;
+
+exports[`FilmCollection.js renders renders no collection for mobile 1`] = `ShallowWrapper {}`;
+
+exports[`FilmCollection.js renders renders search collection for desktop 1`] = `ShallowWrapper {}`;
+
+exports[`FilmCollection.js renders renders search collection for mobile 1`] = `ShallowWrapper {}`;

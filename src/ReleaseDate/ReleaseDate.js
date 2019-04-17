@@ -2,9 +2,9 @@
 import React from 'react';
 import '../style.css';
 
-const releaseDate = (props) => {
+const ReleaseDate = (props) => {
 
     return <p className='release-date'>{props.date}</p>;
 };
 
-export default releaseDate;
+export default ReleaseDate;

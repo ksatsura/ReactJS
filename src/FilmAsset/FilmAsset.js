@@ -1,17 +1,27 @@
 //imports
 import React from 'react';
-import Poster from '../Poster/Poster.js';
-import Info from '../Info/Info.js';
+import Poster from '../Poster/Poster';
+import Info from '../Info/Info';
+import { connect } from 'react-redux';
+import { fetchPostIfNeeded } from '../actions/assetActions';
 import '../style.css';
 
-const filmAsset = (props) => { 
+export const FilmAsset = (props) => {
+
+    const {asset, handleClick} = props;
 
     return (
-        <div className='film-asset' onClick={props.handleClick} >
-            <Poster url={props.url}  />
-            <Info releaseDate={props.releaseDate} title={props.title} genre={props.genre} />
+        <div id={asset.id} className='film-asset' onClick={(e) => handleClick(e) }>
+            <Poster url={asset.poster_path}  />
+            <Info asset={asset} />
         </div>
     );
 };
 
-export default filmAsset;
+const mapDispatchToProps = dispatch => {
+    return {
+        handleClick: (e) => { dispatch(fetchPostIfNeeded(e.currentTarget.id)); },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(FilmAsset);

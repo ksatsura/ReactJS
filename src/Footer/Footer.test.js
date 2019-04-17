@@ -1,17 +1,21 @@
 import React from 'react';
-import Footer from './Footer.js';
-import Adapter from 'enzyme-adapter-react-16';
+import Footer from './Footer';
 import {shallow} from 'enzyme';
 
-describe('Footer component', () => {
+describe('Footer.js', () => {
 
-    beforeAll(() => {
-        jest.mock('../CompanyTitle/CompanyTitle.js', () => 'companyTitle');
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<Footer />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<Footer />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<Footer isMobile />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

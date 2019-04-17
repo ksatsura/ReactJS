@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchFilter component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`SearchFilter component renders renders for desktop 1`] = `ShallowWrapper {}`;
+
+exports[`SearchFilter component renders renders for mobile 1`] = `ShallowWrapper {}`;

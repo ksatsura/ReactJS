@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompanyTitle component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`CompanyTitle.js renders renders for desktop 1`] = `ShallowWrapper {}`;
+
+exports[`CompanyTitle.js renders renders for mobile 1`] = `ShallowWrapper {}`;

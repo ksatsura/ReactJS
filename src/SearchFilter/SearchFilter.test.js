@@ -1,33 +1,37 @@
 import React from 'react';
-import SearchFilter from './SearchFilter.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow, mount} from 'enzyme';
-import FilterButton from '../FilterButton/FilterButton.js';
+import { SearchFilter } from './SearchFilter';
+import { shallow } from 'enzyme';
 
 describe('SearchFilter component', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<SearchFilter />);
-        
-        expect(component).toMatchSnapshot();
+    const props = {
+        value: ' ',
+        handleSearchBtnClick: jest.fn(),
+    };
+
+    describe('renders', () => {
+
+        it('renders for desktop', () => {
+            const component = shallow(<SearchFilter {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<SearchFilter isMobile {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 
-    it('test filter title button click event',() => {
-        const component = shallow(<SearchFilter />);
-        component.instance().handleClick = jest.fn();
+    describe('handleChange', () => {
 
-        component.update();
-        component.find('#title').simulate('click', { target: { id: ''}});
-        expect(component.instance().handleClick).toHaveBeenCalled;
+        it('test input change event', () => {
+            
+            const component = shallow(<SearchFilter {...props} />);
+
+            component.find('input').simulate('click');
+            expect(props.handleSearchBtnClick.mock.calls.length).toEqual(1);
+        });
     });
-
-    it('test filter genre button click event',() => {
-        const component = shallow(<SearchFilter />);
-        component.instance().handleClick = jest.fn();
-
-        component.update();
-        component.find('#genre').simulate('click', { target: { id: ''}});
-        expect(component.instance().handleClick).toHaveBeenCalled;
-    });
-
 });

@@ -1,19 +1,25 @@
 import React from 'react';
-import GenreArea from './GenreArea.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import { GenreArea } from './GenreArea';
+import { shallow } from 'enzyme';
 
-describe('GenreArea component', () => {
+describe('GenreArea.js', () => {
 
-    let genre;
+    const props = {
+        genre: '',
+    };
 
-    beforeAll(() => {
-        genre= '';
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<GenreArea genre={genre} />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<GenreArea {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<GenreArea {...props} isMobile />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

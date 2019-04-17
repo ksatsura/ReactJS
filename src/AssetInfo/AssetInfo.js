@@ -1,26 +1,25 @@
 //imports
 import React from 'react';
-import AssetData from '../AssetData/AssetData.js';
-import Poster from '../Poster/Poster.js';
-import CompanyTitle from '../CompanyTitle/CompanyTitle.js';
 import '../style.css';
 
-const assetInfo = (props) => {
+const AssetInfo = (props) => {
+
+    const { asset } = props;
 
     return (
-        <div className='asset-info'>
-            <div className='top-asset-info'>
-                <CompanyTitle />
-                <button onClick={props.handleBack} className='search-navigation'>search</button>
+        <div className='asset-data'>
+            <div className='asset-name-rating'>
+                <p className='asset-name'>{asset.title}</p>
+                <span className='asset-rating'>{asset.vote_average}</span>
             </div>
-            <div className='asset-poster-data'>
-                <div className='poster'>
-                    <Poster url={props.posterUrl}/>
-                </div>
-                <AssetData name={props.asset.title} date={props.asset.releaseDate} nomination={props.asset.nomination} description={props.asset.description} duration={props.asset.duration} rating={props.asset.rating} />
+            <p className='asset-tagline'>{asset.tagline}</p>
+            <div className='asset-date-duration'>
+                <p className='asset-date'>{asset.release_date.slice(0,4)}</p>
+                <p className='asset-duration'>{`${asset.runtime} min`}</p>
             </div>
+            <p className='asset-description'>{asset.overview}</p>
         </div>
     );
 };
 
-export default assetInfo;
+export default AssetInfo;

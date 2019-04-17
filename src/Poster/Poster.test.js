@@ -1,19 +1,25 @@
 import React from 'react';
-import Poster from './Poster.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import Poster from './Poster';
+import { shallow } from 'enzyme';
 
-describe('Poster component', () => {
+describe('Poster.js', () => {
 
-    let url;
+    const props = {
+        url: '',
+    };
 
-    beforeAll(() => {
-        url='../images/default.png';
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<Poster  url={url} />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<Poster {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<Poster {...props} isMobile />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

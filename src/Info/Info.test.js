@@ -1,26 +1,29 @@
 import React from 'react';
-import Info from './Info.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import { Info } from './Info.js';
+import { shallow } from 'enzyme';
 
-describe('Info component', () => {
+describe('Info.js', () => {
 
-    let genre;
-    let title;
-    let releaseDate;
+    const props = {
+        asset: {
+            genres: [' ', ' '],
+            release_date: ' ',
+            title: '',
+        }
+    };
 
-    beforeAll(() => {
-        genre= '';
-        title='';
-        releaseDate='';
-        jest.mock('../FilmName/FilmName.js', () => 'filmName');
-        jest.mock('../Genre/Genre.js', () => 'genre');
-        jest.mock('../ReleaseDate/ReleaseDate.js', () => 'releaseDate');
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<Info title={title} releaseDate={releaseDate} genre={genre} />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<Info {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<Info {...props} isMobile />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

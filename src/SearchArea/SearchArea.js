@@ -1,41 +1,32 @@
 //imports
-import React, {PureComponent} from 'react';
-import SearchFilter from '../SearchFilter/SearchFilter.js';
+import React from 'react';
+import SearchFilter from '../SearchFilter/SearchFilter';
+import { connect } from 'react-redux';
+import { saveInputValue } from '../actions/searchActions';
 import '../style.css';
 
-class SearchArea extends PureComponent {
+export const SearchArea = (props) => {
+    const { value, handleChange } = props;
 
-    constructor (props) {
-        super(props);
-        this.state = {value: ''};
-    
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    return (
+        <div className='search-area'>
+            <h1 className='search-title'>find your movie</h1>
+            <input type="search" name="search-value" className='search-value' value={value} onChange={(e) => handleChange(e.target.value)} />
+            <SearchFilter />
+        </div>
+    );  
+};
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+const mapDispatchToProps = dispatch => {
+    return {
+        handleChange: (value) => dispatch(saveInputValue(value)),
+    };
+};
 
-    handleSubmit(event) {
-        event.preventDefault();
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
-    }
+const mapStateToProps = state => {
+    return {
+        value: state.filmListReducer.currentValue,
+    };
+};
 
-    render() {
-        return (
-            <div className='search-area'>
-                <h1 className='search-title'>find your movie</h1>
-                <form className='search-form' onSubmit={this.handleSubmit} >
-                    <input type="search" name="search-value" className='search-value' value={this.state.value} onChange={this.handleChange} />
-                    <br/><br/>
-                    <input type="submit" value="Search" className='search-button' onClick={(e) => this.props.handleClick(this.state.value, e)}/>
-                </form>
-                <SearchFilter />
-            </div>
-        );
-    }
-}
-
-export default SearchArea;
+export default connect(mapStateToProps, mapDispatchToProps)(SearchArea);

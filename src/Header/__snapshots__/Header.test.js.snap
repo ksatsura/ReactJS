@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`Header.js renders renders for desktop after the asset was clicked 1`] = `ShallowWrapper {}`;
+
+exports[`Header.js renders renders for desktop if the asset was not clicked 1`] = `ShallowWrapper {}`;
+
+exports[`Header.js renders renders for mobile after the asset was clicked 1`] = `ShallowWrapper {}`;
+
+exports[`Header.js renders renders for mobile if the asset was not clicked 1`] = `ShallowWrapper {}`;

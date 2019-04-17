@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsArea.js renders renders for desktop if the asset was not clicked 1`] = `ShallowWrapper {}`;
+
+exports[`ResultsArea.js renders renders for desktop when no assets number 1`] = `ShallowWrapper {}`;
+
+exports[`ResultsArea.js renders renders for desktop when the asset was clicked 1`] = `ShallowWrapper {}`;
+
+exports[`ResultsArea.js renders renders for mobile  when the asset was clicked 1`] = `ShallowWrapper {}`;
+
+exports[`ResultsArea.js renders renders for mobile if the asset was not clicked 1`] = `ShallowWrapper {}`;
+
+exports[`ResultsArea.js renders renders for mobile when no assets number 1`] = `ShallowWrapper {}`;

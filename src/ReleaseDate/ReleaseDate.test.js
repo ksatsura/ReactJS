@@ -1,19 +1,25 @@
 import React from 'react';
-import ReleaseDate from './ReleaseDate.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import ReleaseDate from './ReleaseDate';
+import { shallow } from 'enzyme';
 
-describe('ReleaseDate component', () => {
+describe('ReleaseDate.js', () => {
 
-    let date;
+    const props = {
+        date: '',
+    };
 
-    beforeAll(() => {
-        date='';
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<ReleaseDate  date={date} />);
-        
-        expect(component).toMatchSnapshot();
+        it('renders for desktop', () => {
+            const component = shallow(<ReleaseDate {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
+
+        it('renders for mobile', () => {
+            const component = shallow(<ReleaseDate {...props} isMobile />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

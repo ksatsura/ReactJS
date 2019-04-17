@@ -2,9 +2,9 @@
 import React from 'react';
 import '../style.css';
 
-const filmName = (props) => {
+const FilmName = (props) => {
 
-    return <p>{props.title}</p>;
+    return <p className='film-name'>{props.title}</p>;
 };
 
-export default filmName;
+export default FilmName;
