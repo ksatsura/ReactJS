@@ -58,7 +58,7 @@ const fetchPost = (assetId) => {
         dispatch(requestPost(assetId));
   
         return fetch(`https://reactjs-cdp.herokuapp.com/movies/${assetId}`, { mode: 'cors'} )
-            .then(response => response.json() )
+            .then(response => response.json(), error => { console.log('An error occurred.', error); dispatch(invalidateParams()); } )
             .then(json => { dispatch(receivePost(assetId, json)); dispatch(fetchAssetsIfNeeded(json.genres[0], true)); } )
             .catch(error => console.log('An error occurred.', error) );
     };

@@ -10,12 +10,14 @@ export default (state = {
         return {...state,
             didInvalidate: true,
             assetId: '',
+            isFetching: false,
         };
     case 'REQUEST_POST':
         return {
             ...state,
             isFetching: true,
             didInvalidate: false,
+            assetId: action.assetId,
         };
     case 'RECEIVE_POST':
         return {
@@ -23,7 +25,7 @@ export default (state = {
             isFetching: false,
             didInvalidate: false,
             asset: action.asset,
-            assetId: '',
+            assetId: action.assetId,
             isAssetClicked: true,
         };
     case 'BACK_TO_SEARCH':

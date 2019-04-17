@@ -11,7 +11,8 @@ export default (state = {
         return {
             ...state,
             didInvalidate: true,
-            // currentValue: '',
+            isFetching: false,
+            currentValue: '',
         };
     case 'REQUEST_ASSETS':
         return {

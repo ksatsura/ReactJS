@@ -65,10 +65,9 @@ export const saveInputValue = (value) => {
     };
 };
 
-export const invalidateParams = (searchValue) => {
+export const invalidateParams = () => {
     return {
         type: 'INVALIDATE_SEARCH',
-        searchValue
     };
 };
 
@@ -107,7 +106,7 @@ const fetchAssets = (searchValue, state, searchByGenre) => {
         searchByGenre ? dispatch(requestAssetsSameGenre(searchValue)) : dispatch(requestAssets(searchValue));
   
         return fetch(request, { mode: 'cors'} )
-            .then(response => response.json() )
+            .then(response => response.json(), error => { console.log('An error occurred.', error); dispatch(invalidateParams()); } )
             .then(json => searchByGenre ? dispatch(receiveAssetsSameGenre(searchValue, json)) : dispatch(receiveAssets(searchValue, json)) )
             .catch(error => console.log('An error occurred.', error) );
     };
