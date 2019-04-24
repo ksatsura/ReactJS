@@ -2,9 +2,11 @@
 import React from 'react';
 import '../style.css';
 
-const genre = (props) => {
+const Genre = (props) => {
+    
+    const genres = props.genres.join(' & ');
 
-    return <p className='second-title'>{props.genre}</p>;
+    return <p className='second-title'>{genres}</p>;
 };
 
-export default genre;
+export default Genre;

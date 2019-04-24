@@ -1,29 +1,51 @@
 import React from 'react';
-import FilterButton from './FilterButton.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import { FilterButton } from './FilterButton';
+import { shallow } from 'enzyme';
 
-describe('FilterButton component', () => {
+describe('FilterButton.js', () => {
 
-    let styles;
-    let handleClick;
+    const props = {
+        id: 'title', 
+        searchBy: 'genre', 
+        sortBy: 'release_date',
+        handleFilterClick: jest.fn(), 
+        handleSortClick: jest.fn(), 
+        name: '',
+    };
 
-    beforeAll(() => {
-        styles='';
-        handleClick=jest.fn();
+    describe('should render', () => {
+
+        it('as expected', () => {
+            const component = shallow(<FilterButton {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 
-    it('should be render correctly', () => {
-        const component = shallow(<FilterButton styles={styles} onClick={handleClick} />);
-        
-        expect(component).toMatchSnapshot();
+    describe('handleFilterClick', () => {
+
+        it('test filter button click event', () => {
+            
+            const component = shallow(<FilterButton {...props} />);
+
+            component.find('button').simulate('click', { target: { id: 'vote_average'}});
+            expect(props.handleFilterClick.mock.calls.length).toEqual(1);
+        });
     });
 
-    it('test filter button click event', () => {
-        
-        const component = shallow(<FilterButton styles={styles} onClick={handleClick}/>);
+    describe('handleSortClick', () => {
 
-        component.find('button').simulate('click');
-        expect(handleClick.mock.calls.length).toEqual(1);
+        const otherProps = {
+            ...props,
+            id: 'vote_average',
+        };
+
+        it('test sort button click event', () => {
+            
+            const component = shallow(<FilterButton {...otherProps} />);
+
+            component.find('button').simulate('click', { target: { id: 'release_date'}});
+            expect(props.handleSortClick.mock.calls.length).toEqual(1);
+        });
     });
 });

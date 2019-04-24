@@ -12,6 +12,6 @@ describe('My First Test', () => {
 
         cy.get('input[type=submit]').click();
     
-        cy.get('div.film-asset').should('exist');
+        cy.get('div.film-film').should('exist');
     });
 });

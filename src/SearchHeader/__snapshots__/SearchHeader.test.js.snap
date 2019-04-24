@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchHeader.js should render as expected 1`] = `
+<div
+  className="header"
+>
+  <СompanyTitle />
+  <Connect(SearchArea) />
+</div>
+`;

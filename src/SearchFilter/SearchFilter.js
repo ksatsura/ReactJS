@@ -1,31 +1,35 @@
 //imports
-import React, { Component } from 'react';
-import FilterButton from '../FilterButton/FilterButton.js';
+import React from 'react';
+import FilterButton from '../FilterButton/FilterButton';
+import { connect } from 'react-redux';
+import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
 
-class SearchFilter extends Component {
+export const SearchFilter = (props) => {
 
-    constructor (props) {
-        super(props);
-        this.state = {
-            focused: 'title',
-        };
-        this.handleClick = this.handleClick.bind(this);
-    }
+    const { value, handleSearchBtnClick } = props;
 
-    handleClick(event) {
-        this.setState({focused: event.target.id});
-    }
-    
-    
-    render () {
-        return (
+    return (
+        <div className='search-buttons'>
             <div className='search-filter'>
                 <p className='search-filter-title'>search by</p>
-                <FilterButton id='title' styles={ this.state.focused === 'title' ? 'search-filter-btn-title focused' : 'search-filter-btn-title'} onClick={this.handleClick}/>
-                <FilterButton id='genre' styles={ this.state.focused === 'genre' ? 'search-filter-btn-genre focused' : 'search-filter-btn-genre'} onClick={this.handleClick}/>
+                <FilterButton id='title' name='title' />
+                <FilterButton id='genre' name='genre' />
             </div>
-        );
-    }
-}
+            <input type="submit" value="Search" className='search-button' onClick={() => handleSearchBtnClick(value) }/>
+        </div>
+    );
+};
 
-export default SearchFilter;
+const mapDispatchToProps = dispatch => {
+    return {
+        handleSearchBtnClick: (value) => dispatch(fetchRequestIfNeeded(value)),
+    };
+};
+
+const mapStateToProps = state => {
+    return {
+        value: state.filmListReducer.currentValue,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFilter);

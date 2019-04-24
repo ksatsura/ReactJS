@@ -1,21 +1,23 @@
 //imports
 import React from 'react';
-import FilmName from '../FilmName/FilmName.js';
-import Genre from '../Genre/Genre.js';
-import ReleaseDate from '../ReleaseDate/ReleaseDate.js';
+import FilmName from '../FilmName/FilmName';
+import Genre from '../Genre/Genre';
+import ReleaseDate from '../ReleaseDate/ReleaseDate';
 import '../style.css';
 
-const info = (props) => {
+export const Info = (props) => {
+
+    const { film } = props;
 
     return (
-        <div className='asset-title'>
+        <div className='film-title'>
             <div className='first-title'>
-                <FilmName title={props.title} />
-                <ReleaseDate date={props.releaseDate} />
+                <FilmName title={film.title} />
+                <ReleaseDate date={film.release_date} />
             </div>
-            <Genre genre={props.genre} />
+            <Genre genres={film.genres} />
         </div>
     );
 };
 
-export default info;
+export default Info;

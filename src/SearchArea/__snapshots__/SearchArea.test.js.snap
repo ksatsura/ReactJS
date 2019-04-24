@@ -1,3 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchArea component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`SearchArea component SearchArea.js should render as expected 1`] = `
+<div
+  className="search-area"
+>
+  <h1
+    className="search-title"
+  >
+    find your movie
+  </h1>
+  <input
+    className="search-value"
+    name="search-value"
+    onChange={[Function]}
+    type="search"
+    value=" "
+  />
+  <Connect(SearchFilter) />
+</div>
+`;

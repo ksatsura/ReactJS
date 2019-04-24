@@ -1,17 +1,27 @@
 //imports
 import React from 'react';
-import Poster from '../Poster/Poster.js';
-import Info from '../Info/Info.js';
+import Poster from '../Poster/Poster';
+import Info from '../Info/Info';
+import { connect } from 'react-redux';
+import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
 import '../style.css';
 
-const filmAsset = (props) => { 
+export const FilmAsset = (props) => {
+
+    const { film, handleClick } = props;
 
     return (
-        <div className='film-asset' onClick={props.handleClick} >
-            <Poster url={props.url}  />
-            <Info releaseDate={props.releaseDate} title={props.title} genre={props.genre} />
+        <div id={film.id} className='film-asset' onClick={(e) => handleClick(e, film.genres[0]) }>
+            <Poster url={film.poster_path}  />
+            <Info film={film} />
         </div>
     );
 };
 
-export default filmAsset;
+const mapDispatchToProps = dispatch => {
+    return {
+        handleClick: (e, genre) => { dispatch(fetchRequestIfNeeded(genre, true, e.currentTarget.id)); },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(FilmAsset);

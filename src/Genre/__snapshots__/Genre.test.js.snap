@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Genre component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`Genre.js should render as expected 1`] = `
+<p
+  className="second-title"
+>
+  Comedy & Triller
+</p>
+`;

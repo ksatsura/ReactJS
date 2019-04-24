@@ -1,13 +1,14 @@
 import React from 'react';
-import CompanyTitle from './CompanyTitle.js';
-import Adapter from 'enzyme-adapter-react-16';
+import CompanyTitle from './CompanyTitle';
 import {shallow} from 'enzyme';
 
-describe('CompanyTitle component', () => {
+describe('CompanyTitle.js', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<CompanyTitle />);
-        
-        expect(component).toMatchSnapshot();
+    describe('renders', () => {
+
+        it('renders for desktop', () => {
+            const component = shallow(<CompanyTitle />);
+            expect(component).toMatchSnapshot();
+        });
     });
 });

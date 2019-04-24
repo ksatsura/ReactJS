@@ -2,9 +2,9 @@
 import React from 'react';
 import '../style.css';
 
-const CompanyTitle = () => {
+const СompanyTitle = () => {
 
     return <p className='company-title'>netflixroulette</p>;
 };
 
-export default CompanyTitle;
+export default СompanyTitle;

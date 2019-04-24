@@ -18,7 +18,7 @@ body {
     width: 1200px;
     height: 300px;
     margin: auto;
-    background-image: url('images/wallpaper.jpg');
+    background-image: url('images/wallpaper3.jpg');
     background-repeat: no-repeat;
     background-size: 1200px 300px;
 }
@@ -60,11 +60,13 @@ body {
 .selected {
     color: #ff0055;
 }
+
 .search-value {
     height: 40px;
     width: 1080px;
     font-size: 30px;
     background-color: rgba(0, 0, 0, 0.9);
+    margin: 10px 60px 20px 60px;
     color: white;
     border-color: black black #ff0055 black;
 }
@@ -106,7 +108,7 @@ body {
     background-color:#404040;
 }
 
-.search-results {
+.results-area {
     width: 1200px;
     height: 60px;
     margin: auto;
@@ -123,13 +125,6 @@ body {
     font-size: 18px;
 }
 
-.search-form {
-    margin: 10px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
 .search-button {
     width: 150px;
     height: 40px;
@@ -137,6 +132,13 @@ body {
     color: white;
     font-size: 20px;
     border: none;
+}
+
+.search-buttons {
+    width: 1140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .search-area {
@@ -163,10 +165,11 @@ body {
 }
 
 .film-asset {
-    width: 350px;
-    height: 460px;
+    width: 285px;
+    max-height: 480px;
     margin: 15px 24px;
     border: 1px solid black;
+    font-size: 14px;
 }
 
 .no-films {
@@ -190,24 +193,31 @@ body {
     margin: 0px 5px;
 }
 
-.asset-title {
+.film-asset-name {
+    width: 180px;
+}
+
+.film-title {
     display: flex;
     flex-direction: column;
 }
 
 .release-date {
     border: 1px solid black;
+    height: 18px;
 }
 
 .second-title {
     margin-left: 5px;
+    font-style: italic;
+    font-size: 12;
 }
 
-.asset-info {
+.film-info {
     width: 1200px;
     height: 500px;
     margin: auto;
-    background-image: url('images/wallpaper.jpg');
+    background-image: url('images/wallpaper3.jpg');
     background-repeat: no-repeat;
     background-size: 1200px 500px;
 }
@@ -222,7 +232,7 @@ body {
     margin: 20px 40px;
 }
 
-.top-asset-info {
+.top-film-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -232,36 +242,40 @@ body {
     margin: 0px 20px;
 }
 
-.asset-poster-data {
+.film-poster-data {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.asset-name-rating {
+.film-name-rating {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 250px;
+    min-width: 250px;
+    max-width: 400px;
+    align-items: baseline;
 }
 
-.asset-data {
+.film-data {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 200px;
+    /* min-height: 200px; */
+    max-height: 300px;
     width: 740px;
     margin-right: 60px;
 }
 
-.asset-name {
+.film-name {
     color: #ff0055;
-    font-size: 30px;
+    font-size: 27px;
     font-weight: bold;
-    height: 50px;
+    min-height: 50px;
+    max-width: 300px;
 }
 
-.asset-rating {
+.film-rating {
     color: rgb(25, 204, 25);
     width: 50px;
     height: 50px;
@@ -270,14 +284,15 @@ body {
     border-radius: 50%;
     border: 2px solid rgb(25, 204, 25);
     text-align: center;
+    line-height: 50px;
 }
 
-.asset-nomination {
+.film-tagline {
     color: rgb(197, 195, 195);
     font-size: 18px;
 }
 
-.asset-date-duration {
+.film-date-duration {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -286,12 +301,12 @@ body {
     width: 300px;
 }
 
-.asset-description {
+.film-description {
     color: rgb(197, 195, 195);
     font-size: 18px;
 }
 
-.asset-genre {
+.film-genre {
     font-size: 20px;
     font-weight: bold;
     width: 300px;

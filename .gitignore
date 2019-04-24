@@ -1,6 +1,8 @@
 # dependencies
 /node_modules
 /dist
+/cypress/integration/examples
+/coverage
 
 # production
 /build

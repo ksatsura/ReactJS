@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsArea.js renders if the film was not clicked 1`] = `
+<div
+  className="results-area"
+>
+  <p
+    className="results-title"
+  >
+    1 movies found
+  </p>
+  <div
+    className="results-filter"
+  >
+    <p
+      className="results-filter-title"
+    >
+      Sort by
+    </p>
+    <Connect(FilterButton)
+      id="release_date"
+      name="release date"
+    />
+    <Connect(FilterButton)
+      id="vote_average"
+      name="rating"
+    />
+  </div>
+</div>
+`;
+
+exports[`ResultsArea.js renders when no films number 1`] = `
+<div
+  className="results-area"
+  id="no-films"
+/>
+`;
+
+exports[`ResultsArea.js renders when the film was clicked 1`] = `
+<div
+  className="results-area"
+>
+  <GenreArea
+    genre=""
+  />
+  <div />
+</div>
+`;

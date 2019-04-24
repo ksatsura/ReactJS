@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`Footer.js should render as expected 1`] = `
+<div
+  className="footer"
+>
+  <СompanyTitle />
+</div>
+`;

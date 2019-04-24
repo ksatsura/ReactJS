@@ -1,8 +1,8 @@
 //imports
 import React from 'react';
-import CompanyTitle from '../CompanyTitle/CompanyTitle.js';
+import CompanyTitle from '../CompanyTitle/CompanyTitle';
 
-const footer = (props) => {
+const Footer = (props) => {
     return (
         <div className='footer'>
             <CompanyTitle />
@@ -10,4 +10,4 @@ const footer = (props) => {
     );
 };
 
-export default footer;
+export default Footer;

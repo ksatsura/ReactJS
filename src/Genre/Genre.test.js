@@ -1,19 +1,19 @@
 import React from 'react';
-import Genre from './Genre.js';
-import Adapter from 'enzyme-adapter-react-16';
+import Genre from './Genre';
 import {shallow} from 'enzyme';
 
-describe('Genre component', () => {
+describe('Genre.js', () => {
 
-    let genre;
+    const props = {
+        genres: ['Comedy', 'Triller'],
+    };
 
-    beforeAll(() => {
-        genre= '';
-    });
+    describe('should render', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<Genre genre={genre} />);
-        
-        expect(component).toMatchSnapshot();
+        it('as expected', () => {
+            const component = shallow(<Genre {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

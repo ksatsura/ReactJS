@@ -1,3 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchFilter component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`SearchFilter component should render as expected 1`] = `
+<div
+  className="search-buttons"
+>
+  <div
+    className="search-filter"
+  >
+    <p
+      className="search-filter-title"
+    >
+      search by
+    </p>
+    <Connect(FilterButton)
+      id="title"
+      name="title"
+    />
+    <Connect(FilterButton)
+      id="genre"
+      name="genre"
+    />
+  </div>
+  <input
+    className="search-button"
+    onClick={[Function]}
+    type="submit"
+    value="Search"
+  />
+</div>
+`;

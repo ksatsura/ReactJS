@@ -1,19 +1,19 @@
 import React from 'react';
-import Poster from './Poster.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import Poster from './Poster';
+import { shallow } from 'enzyme';
 
-describe('Poster component', () => {
+describe('Poster.js', () => {
 
-    let url;
+    const props = {
+        url: 'src/images/wallpaper3.jpg',
+    };
 
-    beforeAll(() => {
-        url='../images/default.png';
-    });
+    describe('should render', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<Poster  url={url} />);
-        
-        expect(component).toMatchSnapshot();
+        it('as expected', () => {
+            const component = shallow(<Poster {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

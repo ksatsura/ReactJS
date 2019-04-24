@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilmAsset component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`FilmAsset.js renders renders for desktop 1`] = `
+<div
+  className="film-asset"
+  onClick={[Function]}
+>
+  <Poster
+    url="src/images/wallpaper3.jpg"
+  />
+  <Info
+    film={
+      Object {
+        "poster_path": "src/images/wallpaper3.jpg",
+      }
+    }
+  />
+</div>
+`;

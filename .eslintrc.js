@@ -33,6 +33,7 @@ module.exports = {
         ],
         "no-unused-vars": "off",
         "no-undef": "off",
+        "no-console": "off",
     },
     "parser": "babel-eslint",
     "parserOptions": {

@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`Header.js should render after the film was clicked 1`] = `
+<div>
+  <Connect(FilmHeader) />
+</div>
+`;
+
+exports[`Header.js should render if the film was not clicked 1`] = `
+<div>
+  <SearchHeader />
+</div>
+`;

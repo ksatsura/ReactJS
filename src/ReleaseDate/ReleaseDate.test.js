@@ -1,19 +1,19 @@
 import React from 'react';
-import ReleaseDate from './ReleaseDate.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import ReleaseDate from './ReleaseDate';
+import { shallow } from 'enzyme';
 
-describe('ReleaseDate component', () => {
+describe('ReleaseDate.js', () => {
 
-    let date;
+    const props = {
+        date: '2019-01-01',
+    };
 
-    beforeAll(() => {
-        date='';
-    });
+    describe('renders', () => {
 
-    it('should be render correctly', () => {
-        const component = shallow(<ReleaseDate  date={date} />);
-        
-        expect(component).toMatchSnapshot();
+        it('as expected', () => {
+            const component = shallow(<ReleaseDate {...props} />);
+
+            expect(component).toMatchSnapshot();
+        });
     });
 });

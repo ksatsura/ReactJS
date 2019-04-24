@@ -1,18 +1,35 @@
 import React from 'react';
-import Header from './Header.js';
-import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from 'enzyme';
+import { Header } from './Header';
+import SearchHeader from '../SearchHeader/SearchHeader';
+import FilmHeader from '../FilmHeader/FilmHeader';
+import { shallow } from 'enzyme';
 
-describe('Header component', () => {
+describe('Header.js', () => {
 
-    beforeAll(() => {
-        jest.mock('../SearchArea/SearchArea.js', () => 'searchArea');
-        jest.mock('../CompanyTitle/CompanyTitle.js', () => 'companyTitle');
-    });
+    const props = {
+        isFilmClicked: false,
+    };
 
-    it('should be render correctly', () => {
-        const component = shallow(<Header />);
-        
-        expect(component).toMatchSnapshot();
+    describe('should render', () => {
+
+        it('if the film was not clicked', () => {
+            const component = shallow(<Header {...props} />);
+
+            expect(component).toMatchSnapshot();
+            expect(component.find(SearchHeader).length).toEqual(1);
+            expect(component.find(FilmHeader).length).toEqual(0);
+        });
+
+        it('after the film was clicked', () => {
+            const otherProps = {
+                ...props,
+                isFilmClicked: true,
+            };
+            const component = shallow(<Header {...otherProps} />);
+
+            expect(component).toMatchSnapshot();
+            expect(component.find(SearchHeader).length).toEqual(0);
+            expect(component.find(FilmHeader).length).toEqual(1);
+        });
     });
 });

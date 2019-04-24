@@ -1,18 +1,18 @@
 //imports
 import React from 'react';
-import SearchArea from '../SearchArea/SearchArea.js';
-import CompanyTitle from '../CompanyTitle/CompanyTitle.js';
+import SearchHeader from '../SearchHeader/SearchHeader';
+import FilmHeader from '../FilmHeader/FilmHeader';
 import '../style.css';
 
-const header = (props) => {
+export const Header = (props) => {
+
+    const { isFilmClicked } = props;
 
     return (
-        <div className='header'>
-            <CompanyTitle />
-            <SearchArea handleClick={props.handleClick} />
+        <div>
+            { isFilmClicked ? <FilmHeader /> : <SearchHeader /> }
         </div>
-
     );
 };
 
-export default header;
+export default Header;

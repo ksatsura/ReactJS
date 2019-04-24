@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmInfo.js should renreds as expected 1`] = `
+<div
+  className="film-data"
+>
+  <div
+    className="film-name-rating"
+  >
+    <p
+      className="film-name"
+    >
+      title
+    </p>
+    <span
+      className="film-rating"
+    >
+      6
+    </span>
+  </div>
+  <p
+    className="film-tagline"
+  >
+    Lorum ipsum
+  </p>
+  <div
+    className="film-date-duration"
+  >
+    <p
+      className="film-date"
+    >
+      2019
+    </p>
+    <p
+      className="film-duration"
+    >
+      145 min
+    </p>
+  </div>
+  <p
+    className="film-description"
+  >
+    Lorum ipsum
+  </p>
+</div>
+`;

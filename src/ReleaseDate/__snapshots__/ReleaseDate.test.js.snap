@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReleaseDate component should be render correctly 1`] = `ShallowWrapper {}`;
+exports[`ReleaseDate.js renders as expected 1`] = `
+<p
+  className="release-date"
+>
+  2019-01-01
+</p>
+`;
