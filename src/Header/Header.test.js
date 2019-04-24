@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 describe('Header.js', () => {
 
     const props = {
-        isfilmClicked: false,
+        isFilmClicked: false,
     };
 
     describe('should render', () => {
@@ -23,7 +23,7 @@ describe('Header.js', () => {
         it('after the film was clicked', () => {
             const otherProps = {
                 ...props,
-                isfilmClicked: true,
+                isFilmClicked: true,
             };
             const component = shallow(<Header {...otherProps} />);
 

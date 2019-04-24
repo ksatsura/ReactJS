@@ -7,7 +7,7 @@ describe('ResultsArea.js', () => {
 
     const props = {
         filmsNumber: 1, 
-        isfilmClicked: false, 
+        isFilmClicked: false, 
         genre: '',
     };
 
@@ -23,7 +23,7 @@ describe('ResultsArea.js', () => {
         it('when the film was clicked', () => { 
             const otherProps = {
                 ...props,
-                isfilmClicked: true,
+                isFilmClicked: true,
             };
             const component = shallow(<ResultsArea {...otherProps} />);
 

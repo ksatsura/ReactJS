@@ -6,7 +6,7 @@ describe('App.js', () => {
 
     const props = {
         films: [{}, {}], 
-        isfilmClicked: false, 
+        isFilmClicked: false, 
         genre: ' ', 
         filmsSameGenre: [{}, {}]
     };

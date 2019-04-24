@@ -7,7 +7,7 @@ describe('FilmCollection.js', () => {
         films: [{}, {}],
         filmsNumber: 1,
         filmsSameGenre: [{}, {}],
-        isfilmClicked: false,
+        isFilmClicked: false,
     };
 
     describe('renders', () => {
@@ -21,7 +21,7 @@ describe('FilmCollection.js', () => {
         it('renders genre collection for desktop', () => {
             const otherProps = {
                 ...props,
-                isfilmClicked: true,
+                isFilmClicked: true,
             };
             const component = shallow(<FilmCollection {...otherProps} />);
 

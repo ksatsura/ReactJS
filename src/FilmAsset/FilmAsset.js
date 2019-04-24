@@ -11,7 +11,7 @@ export const FilmAsset = (props) => {
     const { film, handleClick } = props;
 
     return (
-        <div id={film.id} className='film-asset' onClick={(e) => handleClick(e) }>
+        <div id={film.id} className='film-asset' onClick={(e) => handleClick(e, film.genres[0]) }>
             <Poster url={film.poster_path}  />
             <Info film={film} />
         </div>
@@ -20,7 +20,7 @@ export const FilmAsset = (props) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleClick: (e) => { dispatch(fetchRequestIfNeeded(null, null, e.currentTarget.id)); },
+        handleClick: (e, genre) => { dispatch(fetchRequestIfNeeded(genre, true, e.currentTarget.id)); },
     };
 };
 

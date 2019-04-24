@@ -27,14 +27,23 @@ export const fetchRequestIfNeeded = (searchValue, searchByGenre, filmId) => {
 
     return (dispatch, getState) => {
         const state = getState();
-        const shouldFetch = (searchValue && shouldFetchRequest(state.filmListReducer, searchValue))
-        || (filmId && shouldFetchRequest(state.filmReducer, null, filmId));
+        let shouldFetch;
+
+        if (searchValue && !searchByGenre) {
+            shouldFetch = shouldFetchRequest(state.filmListReducer, searchValue);
+        } else if (filmId) { 
+            shouldFetch = shouldFetchRequest(state.filmReducer, null, filmId);
+        }
 
         if (shouldFetch) {
-            return (searchValue && dispatch(fetchRequest(searchValue, state.filmListReducer, searchByGenre)))
-            || (filmId && dispatch(fetchRequest(searchValue, state.filmReducer, searchByGenre, filmId)));
-        } else {
-            return Promise.resolve();
+            if (searchValue && !searchByGenre) {
+                dispatch(fetchRequest(searchValue, state.filmListReducer, searchByGenre));
+            } else if (filmId) {
+                dispatch(fetchRequest(null, state.filmReducer, null, filmId));
+                dispatch(fetchRequest(searchValue, state.filmReducer, searchByGenre, null));
+            } else {
+                return Promise.resolve();
+            }
         }
     };
 };
@@ -62,11 +71,14 @@ const fetchRequest = (searchValue, state, searchByGenre, filmId) => {
                 console.log('An error occurred.', error);
                 searchByGenre &&  invalidateParamsSameGenre();
                 (filmId && dispatch(invalidateRequest())) || dispatch(invalidateParams()); })
-            .then(json => searchByGenre 
-                ? dispatch(receiveFilmsSameGenre(json)) 
-                : (filmId 
-                    ? dispatch(receiveFilmInfo(filmId, json)) 
-                    : dispatch(receiveFilms(json))) )
+            .then(json => {
+                if (searchByGenre) {
+                    dispatch(receiveFilmsSameGenre(json));
+                } else if (filmId) {
+                    dispatch(receiveFilmInfo(filmId, json));
+                } else {
+                    dispatch(receiveFilms(searchValue, json));
+                }})
             .catch(error => console.log('An error occurred.', error) );
     };
 };

@@ -7,9 +7,9 @@ const key = 'qwert1';
 
 const FilmCollection = (props) => {
 
-    const { films, filmsNumber, filmsSameGenre, isfilmClicked } = props;
+    const { films, filmsNumber, filmsSameGenre, isFilmClicked } = props;
 
-    const filmCollection = isfilmClicked ? filmsSameGenre : films;
+    const filmCollection = isFilmClicked ? filmsSameGenre : films;
 
     const collection = ( <ul className='film-collection' >
         { filmCollection.map((film, i) => <FilmAsset key={key+i} film={film} />) }

@@ -6,11 +6,11 @@ import '../style.css';
 
 export const Header = (props) => {
 
-    const { isfilmClicked } = props;
+    const { isFilmClicked } = props;
 
     return (
         <div>
-            { isfilmClicked ? <FilmHeader /> : <SearchHeader /> }
+            { isFilmClicked ? <FilmHeader /> : <SearchHeader /> }
         </div>
     );
 };

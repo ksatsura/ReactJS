@@ -20,10 +20,9 @@ export const searchFilmsByGenre = (genre) => {
     };
 };
 
-export const requestFilms = (searchValue) => {
+export const requestFilms = () => {
     return { 
         type: 'REQUEST_FILMS',
-        searchValue,
     };
 };
 

@@ -10,19 +10,19 @@ import './style.css';
 
 const App = (props) => {
 
-    const { films, isfilmClicked, genre, filmsSameGenre } = props;
+    const { films, isFilmClicked, genre, filmsSameGenre } = props;
     const filmsNumber = props.films.length;
 
     return (
         <div className='app'>
             <ErrorBoundary>
-                <Header isfilmClicked={isfilmClicked} />
+                <Header isFilmClicked={isFilmClicked} />
             </ErrorBoundary>
             <ErrorBoundary>
-                <ResultsArea isfilmClicked={isfilmClicked} genre={genre} filmsNumber={filmsNumber} />
+                <ResultsArea isFilmClicked={isFilmClicked} genre={genre} filmsNumber={filmsNumber} />
             </ErrorBoundary>
             <ErrorBoundary>
-                <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} isfilmClicked={isfilmClicked} />
+                <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} isFilmClicked={isFilmClicked} />
             </ErrorBoundary>
             <Footer/>
         </div>
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 
     return {
         films: state.filmListReducer.films,
-        isfilmClicked: state.filmReducer.isfilmClicked,
+        isFilmClicked: state.filmReducer.isFilmClicked,
         genre: state.filmReducer.film.genres[0],
         filmsSameGenre: state.filmListReducer.filmsSameGenre,
     };
