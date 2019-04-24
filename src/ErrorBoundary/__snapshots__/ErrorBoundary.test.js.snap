@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary.js should render when the error occured 1`] = `<ProblemChild />`;

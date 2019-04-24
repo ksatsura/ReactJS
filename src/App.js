@@ -10,19 +10,19 @@ import './style.css';
 
 const App = (props) => {
 
-    const { assets, isAssetClicked, genre, assetsSameGenre } = props;
-    const assetsNumber = props.assets.length;
+    const { films, isfilmClicked, genre, filmsSameGenre } = props;
+    const filmsNumber = props.films.length;
 
     return (
         <div className='app'>
             <ErrorBoundary>
-                <Header isAssetClicked={isAssetClicked} />
+                <Header isfilmClicked={isfilmClicked} />
             </ErrorBoundary>
             <ErrorBoundary>
-                <ResultsArea isAssetClicked={isAssetClicked} genre={genre} assetsNumber={assetsNumber} />
+                <ResultsArea isfilmClicked={isfilmClicked} genre={genre} filmsNumber={filmsNumber} />
             </ErrorBoundary>
             <ErrorBoundary>
-                <FilmCollection assetsNumber={assetsNumber} assets={assets} assetsSameGenre={assetsSameGenre} isAssetClicked={isAssetClicked} />
+                <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} isfilmClicked={isfilmClicked} />
             </ErrorBoundary>
             <Footer/>
         </div>
@@ -32,10 +32,10 @@ const App = (props) => {
 const mapStateToProps = state => {
 
     return {
-        assets: state.filmListReducer.assets,
-        isAssetClicked: state.assetReducer.isAssetClicked,
-        genre: state.assetReducer.asset.genres[0],
-        assetsSameGenre: state.filmListReducer.assetsSameGenre,
+        films: state.filmListReducer.films,
+        isfilmClicked: state.filmReducer.isfilmClicked,
+        genre: state.filmReducer.film.genres[0],
+        filmsSameGenre: state.filmListReducer.filmsSameGenre,
     };
 };
 

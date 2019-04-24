@@ -2,7 +2,7 @@
 import React from 'react';
 import FilterButton from '../FilterButton/FilterButton';
 import { connect } from 'react-redux';
-import { fetchAssetsIfNeeded } from '../actions/searchActions';
+import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
 
 export const SearchFilter = (props) => {
 
@@ -22,7 +22,7 @@ export const SearchFilter = (props) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleSearchBtnClick: (value) => dispatch(fetchAssetsIfNeeded(value)),
+        handleSearchBtnClick: (value) => dispatch(fetchRequestIfNeeded(value)),
     };
 };
 

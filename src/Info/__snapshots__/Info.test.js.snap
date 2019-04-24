@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Info.js renders renders for desktop 1`] = `ShallowWrapper {}`;
-
-exports[`Info.js renders renders for mobile 1`] = `ShallowWrapper {}`;
+exports[`Info.js should render as expected 1`] = `
+<div
+  className="film-title"
+>
+  <div
+    className="first-title"
+  >
+    <FilmName
+      title=""
+    />
+    <ReleaseDate
+      date=" "
+    />
+  </div>
+  <Genre
+    genres={
+      Array [
+        " ",
+        " ",
+      ]
+    }
+  />
+</div>
+`;

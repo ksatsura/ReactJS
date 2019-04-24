@@ -9,16 +9,10 @@ describe('SearchFilter component', () => {
         handleSearchBtnClick: jest.fn(),
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<SearchFilter {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<SearchFilter isMobile {...props} />);
 
             expect(component).toMatchSnapshot();
         });

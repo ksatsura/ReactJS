@@ -1,5 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Poster.js renders renders for desktop 1`] = `ShallowWrapper {}`;
-
-exports[`Poster.js renders renders for mobile 1`] = `ShallowWrapper {}`;
+exports[`Poster.js should render as expected 1`] = `
+<img
+  alt="Poster"
+  height="400px"
+  src="src/images/wallpaper3.jpg"
+  width="285p"
+/>
+`;

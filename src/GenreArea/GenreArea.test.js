@@ -8,16 +8,10 @@ describe('GenreArea.js', () => {
         genre: '',
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<GenreArea {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<GenreArea {...props} isMobile />);
 
             expect(component).toMatchSnapshot();
         });

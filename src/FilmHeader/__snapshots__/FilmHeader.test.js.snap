@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmHeader.js should renders as expected 1`] = `
+<div
+  className="film-info"
+>
+  <div
+    className="top-film-info"
+  >
+    <СompanyTitle />
+    <button
+      className="search-navigation"
+      onClick={[MockFunction]}
+    >
+      search
+    </button>
+  </div>
+  <div
+    className="film-poster-data"
+  >
+    <div
+      className="poster"
+    >
+      <Poster
+        url="src/images/wallpaper.jpg"
+      />
+    </div>
+    <FilmInfo
+      film={
+        Object {
+          "poster_path": "src/images/wallpaper.jpg",
+        }
+      }
+    />
+  </div>
+</div>
+`;

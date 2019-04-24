@@ -1,27 +1,27 @@
 //imports
 import React from 'react';
-import AssetInfo from '../AssetInfo/AssetInfo';
+import FilmInfo from '../FilmInfo/FilmInfo';
 import Poster from '../Poster/Poster';
 import { connect } from 'react-redux';
-import { backToSearch } from '../actions/assetActions';
+import { backToSearch } from '../actions/filmActions';
 import CompanyTitle from '../CompanyTitle/CompanyTitle';
 import '../style.css';
 
-export const AssetHeader = (props) => {
+export const FilmHeader = (props) => {
 
-    const {asset, handleClick} = props;
+    const { film, handleClick } = props;
 
     return (
-        <div className='asset-info'>
-            <div className='top-asset-info'>
+        <div className='film-info'>
+            <div className='top-film-info'>
                 <CompanyTitle />
                 <button onClick={handleClick} className='search-navigation'>search</button>
             </div>
-            <div className='asset-poster-data'>
+            <div className='film-poster-data'>
                 <div className='poster'>
-                    <Poster url={asset.poster_path}/>
+                    <Poster url={film.poster_path}/>
                 </div>
-                <AssetInfo asset={asset} />
+                <FilmInfo film={film} />
             </div>
         </div>
     );
@@ -30,7 +30,7 @@ export const AssetHeader = (props) => {
 const mapStateToProps = state => {
 
     return {
-        asset: state.assetReducer.asset,
+        film: state.filmReducer.film,
     };
 };
 
@@ -40,4 +40,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AssetHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(FilmHeader);

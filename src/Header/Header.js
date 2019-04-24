@@ -1,16 +1,16 @@
 //imports
 import React from 'react';
 import SearchHeader from '../SearchHeader/SearchHeader';
-import AssetHeader from '../AssetHeader/AssetHeader';
+import FilmHeader from '../FilmHeader/FilmHeader';
 import '../style.css';
 
 export const Header = (props) => {
 
-    const { isAssetClicked } = props;
+    const { isfilmClicked } = props;
 
     return (
         <div>
-            { isAssetClicked ? <AssetHeader /> : <SearchHeader /> }
+            { isfilmClicked ? <FilmHeader /> : <SearchHeader /> }
         </div>
     );
 };

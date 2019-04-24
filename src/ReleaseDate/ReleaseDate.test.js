@@ -5,19 +5,13 @@ import { shallow } from 'enzyme';
 describe('ReleaseDate.js', () => {
 
     const props = {
-        date: '',
+        date: '2019-01-01',
     };
 
     describe('renders', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<ReleaseDate {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<ReleaseDate {...props} isMobile />);
 
             expect(component).toMatchSnapshot();
         });

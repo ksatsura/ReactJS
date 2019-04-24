@@ -4,16 +4,10 @@ import {shallow} from 'enzyme';
 
 describe('Footer.js', () => {
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<Footer />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<Footer isMobile />);
 
             expect(component).toMatchSnapshot();
         });

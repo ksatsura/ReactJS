@@ -7,17 +7,17 @@ const key = 'qwert1';
 
 const FilmCollection = (props) => {
 
-    const { assets, assetsNumber, assetsSameGenre, isAssetClicked } = props;
+    const { films, filmsNumber, filmsSameGenre, isfilmClicked } = props;
 
-    const films = isAssetClicked ? assetsSameGenre : assets;
+    const filmCollection = isfilmClicked ? filmsSameGenre : films;
 
     const collection = ( <ul className='film-collection' >
-        { films.map((film, i) => <FilmAsset key={key+i} asset={film} />) }
+        { filmCollection.map((film, i) => <FilmAsset key={key+i} film={film} />) }
     </ul>);
 
     return (
         <div className='films-container'>
-            { assetsNumber > 0 ? collection : <p className='no-films'>No films found</p> }
+            { filmsNumber > 0 ? collection : <p className='no-films'>No films found</p> }
         </div>
     );   
 };

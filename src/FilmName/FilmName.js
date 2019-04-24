@@ -4,7 +4,7 @@ import '../style.css';
 
 const FilmName = (props) => {
 
-    return <p className='film-name'>{props.title}</p>;
+    return <p className='film-asset-name'>{props.title}</p>;
 };
 
 export default FilmName;

@@ -1,41 +1,34 @@
 export default (state = {
     isFetching: false,
     didInvalidate: false,
-    asset: {},
-    assetId: '',
-    isAssetClicked: false,
+    film: { genres: []},
+    filmId: '',
+    isFilmClicked: false,
 }, action) => {
     switch (action.type) {
-    case 'INVALIDATE_ASSET_INFO':
+    case 'INVALIDATE_FILM_INFO':
         return {...state,
             didInvalidate: true,
-            assetId: '',
             isFetching: false,
         };
-    case 'REQUEST_POST':
+    case 'REQUEST_FILM_INFO':
         return {
             ...state,
             isFetching: true,
             didInvalidate: false,
-            assetId: action.assetId,
         };
-    case 'RECEIVE_POST':
+    case 'RECEIVE_FILM_INFO':
         return {
             ...state, 
             isFetching: false,
-            didInvalidate: false,
-            asset: action.asset,
-            assetId: action.assetId,
-            isAssetClicked: true,
+            film: action.film,
+            filmId: action.filmId,
+            isFilmClicked: true,
         };
     case 'BACK_TO_SEARCH':
         return {
             ...state,
-            isAssetClicked: false,
-            asset: {
-                genres: []
-            },
-            assetId: '',
+            isFilmClicked: false,
         };
     default:
         return state;

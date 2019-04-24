@@ -15,11 +15,5 @@ describe('FilmName.js', () => {
 
             expect(component).toMatchSnapshot();
         });
-
-        it('renders for mobile', () => {
-            const component = shallow(<FilmName {...props} isMobile />);
-
-            expect(component).toMatchSnapshot();
-        });
     });
 });

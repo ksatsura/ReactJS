@@ -1,5 +1,6 @@
 //imports
-import React from 'react';
+import React, { Component } from 'react';
+import classNames from 'classnames';
 import { connect } from  'react-redux';
 import { toggleSearchFilter, toggleSortFilter } from '../actions/searchActions';
 import '../style.css';
@@ -8,25 +9,14 @@ export const FilterButton = (props) => {
 
     const { id, searchBy, sortBy, handleFilterClick, handleSortClick, name } = props;
     const handleClick = (id === 'title' || id === 'genre') ? handleFilterClick : handleSortClick;
-    let styles;
-
-    switch(id) {
-    case 'title':
-        styles = searchBy === 'title' ? 'search-filter-btn-title focused' : 'search-filter-btn-title';
-        break;
-    case 'genre':
-        styles = searchBy === 'genre' ? 'search-filter-btn-genre focused' : 'search-filter-btn-genre';
-        break;
-    case 'release_date':
-        styles = sortBy === 'release_date' ? 'search-results-btn selected' : 'search-results-btn';
-        break;
-    case 'vote_average':
-        styles = sortBy === 'vote_average' ? 'search-results-btn selected' : 'search-results-btn';
-    }
+    let styles = (id === 'title' || id === 'genre') 
+        ? classNames({ [`search-filter-btn-${id}`]: true }, { focused: (searchBy === id) })
+        : classNames('search-results-btn', { selected: (sortBy === id) });
 
     return (
         <button id={id} className={styles} onClick={(e) => handleClick(e.target.id) }>{name}</button>
     );
+    
 };
 
 const mapStateToProps = state => {

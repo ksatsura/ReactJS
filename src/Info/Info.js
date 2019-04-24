@@ -7,15 +7,15 @@ import '../style.css';
 
 export const Info = (props) => {
 
-    const { asset } = props;
+    const { film } = props;
 
     return (
-        <div className='asset-title'>
+        <div className='film-title'>
             <div className='first-title'>
-                <FilmName title={asset.title} />
-                <ReleaseDate date={asset.release_date} />
+                <FilmName title={film.title} />
+                <ReleaseDate date={film.release_date} />
             </div>
-            <Genre genres={asset.genres} />
+            <Genre genres={film.genres} />
         </div>
     );
 };

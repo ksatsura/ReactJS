@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilmName.js renders renders for desktop 1`] = `ShallowWrapper {}`;
-
-exports[`FilmName.js renders renders for mobile 1`] = `ShallowWrapper {}`;
+exports[`FilmName.js renders renders for desktop 1`] = `
+<p
+  className="film-asset-name"
+/>
+`;

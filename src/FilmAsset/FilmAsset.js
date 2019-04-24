@@ -3,24 +3,24 @@ import React from 'react';
 import Poster from '../Poster/Poster';
 import Info from '../Info/Info';
 import { connect } from 'react-redux';
-import { fetchPostIfNeeded } from '../actions/assetActions';
+import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
 import '../style.css';
 
 export const FilmAsset = (props) => {
 
-    const {asset, handleClick} = props;
+    const { film, handleClick } = props;
 
     return (
-        <div id={asset.id} className='film-asset' onClick={(e) => handleClick(e) }>
-            <Poster url={asset.poster_path}  />
-            <Info asset={asset} />
+        <div id={film.id} className='film-asset' onClick={(e) => handleClick(e) }>
+            <Poster url={film.poster_path}  />
+            <Info film={film} />
         </div>
     );
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleClick: (e) => { dispatch(fetchPostIfNeeded(e.currentTarget.id)); },
+        handleClick: (e) => { dispatch(fetchRequestIfNeeded(null, null, e.currentTarget.id)); },
     };
 };
 

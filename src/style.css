@@ -193,11 +193,11 @@ body {
     margin: 0px 5px;
 }
 
-.film-name {
+.film-asset-name {
     width: 180px;
 }
 
-.asset-title {
+.film-title {
     display: flex;
     flex-direction: column;
 }
@@ -213,7 +213,7 @@ body {
     font-size: 12;
 }
 
-.asset-info {
+.film-info {
     width: 1200px;
     height: 500px;
     margin: auto;
@@ -232,7 +232,7 @@ body {
     margin: 20px 40px;
 }
 
-.top-asset-info {
+.top-film-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -242,13 +242,13 @@ body {
     margin: 0px 20px;
 }
 
-.asset-poster-data {
+.film-poster-data {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.asset-name-rating {
+.film-name-rating {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -257,7 +257,7 @@ body {
     align-items: baseline;
 }
 
-.asset-data {
+.film-data {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -267,7 +267,7 @@ body {
     margin-right: 60px;
 }
 
-.asset-name {
+.film-name {
     color: #ff0055;
     font-size: 27px;
     font-weight: bold;
@@ -275,7 +275,7 @@ body {
     max-width: 300px;
 }
 
-.asset-rating {
+.film-rating {
     color: rgb(25, 204, 25);
     width: 50px;
     height: 50px;
@@ -287,12 +287,12 @@ body {
     line-height: 50px;
 }
 
-.asset-tagline {
+.film-tagline {
     color: rgb(197, 195, 195);
     font-size: 18px;
 }
 
-.asset-date-duration {
+.film-date-duration {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -301,12 +301,12 @@ body {
     width: 300px;
 }
 
-.asset-description {
+.film-description {
     color: rgb(197, 195, 195);
     font-size: 18px;
 }
 
-.asset-genre {
+.film-genre {
     font-size: 20px;
     font-weight: bold;
     width: 300px;

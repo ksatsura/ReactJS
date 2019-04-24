@@ -1,13 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilmCollection.js renders renders genre collection for desktop 1`] = `ShallowWrapper {}`;
+exports[`FilmCollection.js renders renders genre collection for desktop 1`] = `
+<div
+  className="films-container"
+>
+  <ul
+    className="film-collection"
+  >
+    <Connect(FilmAsset)
+      film={Object {}}
+      key="qwert10"
+    />
+    <Connect(FilmAsset)
+      film={Object {}}
+      key="qwert11"
+    />
+  </ul>
+</div>
+`;
 
-exports[`FilmCollection.js renders renders genre collection for mobile 1`] = `ShallowWrapper {}`;
+exports[`FilmCollection.js renders renders no collection for desktop 1`] = `
+<div
+  className="films-container"
+>
+  <p
+    className="no-films"
+  >
+    No films found
+  </p>
+</div>
+`;
 
-exports[`FilmCollection.js renders renders no collection for desktop 1`] = `ShallowWrapper {}`;
+exports[`FilmCollection.js renders renders no collection for mobile 1`] = `
+<div
+  className="films-container"
+>
+  <p
+    className="no-films"
+  >
+    No films found
+  </p>
+</div>
+`;
 
-exports[`FilmCollection.js renders renders no collection for mobile 1`] = `ShallowWrapper {}`;
-
-exports[`FilmCollection.js renders renders search collection for desktop 1`] = `ShallowWrapper {}`;
-
-exports[`FilmCollection.js renders renders search collection for mobile 1`] = `ShallowWrapper {}`;
+exports[`FilmCollection.js renders renders search collection for desktop 1`] = `
+<div
+  className="films-container"
+>
+  <ul
+    className="film-collection"
+  >
+    <Connect(FilmAsset)
+      film={Object {}}
+      key="qwert10"
+    />
+    <Connect(FilmAsset)
+      film={Object {}}
+      key="qwert11"
+    />
+  </ul>
+</div>
+`;

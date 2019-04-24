@@ -5,19 +5,13 @@ import { shallow } from 'enzyme';
 describe('Poster.js', () => {
 
     const props = {
-        url: '',
+        url: 'src/images/wallpaper3.jpg',
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<Poster {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<Poster {...props} isMobile />);
 
             expect(component).toMatchSnapshot();
         });

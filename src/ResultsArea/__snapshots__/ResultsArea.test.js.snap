@@ -1,13 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ResultsArea.js renders renders for desktop if the asset was not clicked 1`] = `ShallowWrapper {}`;
+exports[`ResultsArea.js renders if the film was not clicked 1`] = `
+<div
+  className="results-area"
+>
+  <p
+    className="results-title"
+  >
+    1 movies found
+  </p>
+  <div
+    className="results-filter"
+  >
+    <p
+      className="results-filter-title"
+    >
+      Sort by
+    </p>
+    <Connect(FilterButton)
+      id="release_date"
+      name="release date"
+    />
+    <Connect(FilterButton)
+      id="vote_average"
+      name="rating"
+    />
+  </div>
+</div>
+`;
 
-exports[`ResultsArea.js renders renders for desktop when no assets number 1`] = `ShallowWrapper {}`;
+exports[`ResultsArea.js renders when no films number 1`] = `
+<div
+  className="results-area"
+  id="no-films"
+/>
+`;
 
-exports[`ResultsArea.js renders renders for desktop when the asset was clicked 1`] = `ShallowWrapper {}`;
-
-exports[`ResultsArea.js renders renders for mobile  when the asset was clicked 1`] = `ShallowWrapper {}`;
-
-exports[`ResultsArea.js renders renders for mobile if the asset was not clicked 1`] = `ShallowWrapper {}`;
-
-exports[`ResultsArea.js renders renders for mobile when no assets number 1`] = `ShallowWrapper {}`;
+exports[`ResultsArea.js renders when the film was clicked 1`] = `
+<div
+  className="results-area"
+>
+  <GenreArea
+    genre=""
+  />
+  <div />
+</div>
+`;

@@ -6,18 +6,10 @@ import { shallow } from 'enzyme';
 
 describe('SearchHeader.js', () => {
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<SearchHeader />);
-
-            expect(component).toMatchSnapshot();
-            expect(component.find(SearchArea).length).toEqual(1);
-            expect(component.find(CompanyTitle).length).toEqual(1);
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<SearchHeader isMobile />);
 
             expect(component).toMatchSnapshot();
             expect(component.find(SearchArea).length).toEqual(1);

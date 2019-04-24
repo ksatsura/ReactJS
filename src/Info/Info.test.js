@@ -5,23 +5,17 @@ import { shallow } from 'enzyme';
 describe('Info.js', () => {
 
     const props = {
-        asset: {
+        film: {
             genres: [' ', ' '],
             release_date: ' ',
             title: '',
         }
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<Info {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<Info {...props} isMobile />);
 
             expect(component).toMatchSnapshot();
         });

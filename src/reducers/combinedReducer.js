@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import assetReducer from './assetReducer';
+import filmReducer from './filmReducer';
 import filmListReducer from './filmListReducer';
 
 export default combineReducers({
-    assetReducer,
-    filmListReducer
+    filmReducer,
+    filmListReducer,
 });

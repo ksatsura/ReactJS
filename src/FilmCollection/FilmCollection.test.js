@@ -4,10 +4,10 @@ import {shallow} from 'enzyme';
 
 describe('FilmCollection.js', () => {
     const props = {
-        assets: [{}, {}],
-        assetsNumber: 1,
-        assetsSameGenre: [{}, {}],
-        isAssetClicked: false,
+        films: [{}, {}],
+        filmsNumber: 1,
+        filmsSameGenre: [{}, {}],
+        isfilmClicked: false,
     };
 
     describe('renders', () => {
@@ -18,28 +18,12 @@ describe('FilmCollection.js', () => {
             expect(component).toMatchSnapshot();
         });
 
-        it('renders search collection for mobile', () => {
-            const component = shallow(<FilmCollection {...props} isMobile />);
-
-            expect(component).toMatchSnapshot();
-        });
-
         it('renders genre collection for desktop', () => {
             const otherProps = {
                 ...props,
-                isAssetClicked: true,
+                isfilmClicked: true,
             };
             const component = shallow(<FilmCollection {...otherProps} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders genre collection for mobile', () => {
-            const otherProps = {
-                ...props,
-                isAssetClicked: true,
-            };
-            const component = shallow(<FilmCollection {...otherProps} isMobile />);
 
             expect(component).toMatchSnapshot();
         });
@@ -47,7 +31,7 @@ describe('FilmCollection.js', () => {
         it('renders no collection for desktop', () => {
             const otherProps = {
                 ...props,
-                assetsNumber: 0,
+                filmsNumber: 0,
             };
             const component = shallow(<FilmCollection {...otherProps} />);
 
@@ -57,7 +41,7 @@ describe('FilmCollection.js', () => {
         it('renders no collection for mobile', () => {
             const otherProps = {
                 ...props,
-                assetsNumber: 0,
+                filmsNumber: 0,
             };
             const component = shallow(<FilmCollection {...otherProps} isMobile />);
 

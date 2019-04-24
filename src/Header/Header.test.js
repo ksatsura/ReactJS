@@ -1,55 +1,35 @@
 import React from 'react';
 import { Header } from './Header';
 import SearchHeader from '../SearchHeader/SearchHeader';
-import AssetHeader from '../AssetHeader/AssetHeader';
+import FilmHeader from '../FilmHeader/FilmHeader';
 import { shallow } from 'enzyme';
 
 describe('Header.js', () => {
 
     const props = {
-        isAssetClicked: false,
+        isfilmClicked: false,
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop if the asset was not clicked', () => {
+        it('if the film was not clicked', () => {
             const component = shallow(<Header {...props} />);
 
             expect(component).toMatchSnapshot();
             expect(component.find(SearchHeader).length).toEqual(1);
-            expect(component.find(AssetHeader).length).toEqual(0);
+            expect(component.find(FilmHeader).length).toEqual(0);
         });
 
-        it('renders for mobile if the asset was not clicked', () => {
-            const component = shallow(<Header {...props} isMobile />);
-
-            expect(component).toMatchSnapshot();
-            expect(component.find(SearchHeader).length).toEqual(1);
-            expect(component.find(AssetHeader).length).toEqual(0);
-        });
-
-        it('renders for desktop after the asset was clicked', () => {
+        it('after the film was clicked', () => {
             const otherProps = {
                 ...props,
-                isAssetClicked: true,
+                isfilmClicked: true,
             };
             const component = shallow(<Header {...otherProps} />);
 
             expect(component).toMatchSnapshot();
             expect(component.find(SearchHeader).length).toEqual(0);
-            expect(component.find(AssetHeader).length).toEqual(1);
-        });
-
-        it('renders for mobile after the asset was clicked', () => {
-            const otherProps = {
-                ...props,
-                isAssetClicked: true,
-            };
-            const component = shallow(<Header {...otherProps} isMobile />);
-
-            expect(component).toMatchSnapshot();
-            expect(component.find(SearchHeader).length).toEqual(0);
-            expect(component.find(AssetHeader).length).toEqual(1);
+            expect(component.find(FilmHeader).length).toEqual(1);
         });
     });
 });

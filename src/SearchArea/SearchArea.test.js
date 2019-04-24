@@ -11,16 +11,10 @@ describe('SearchArea component', () => {
 
     describe('SearchArea.js', () => {
 
-        describe('renders', () => {
+        describe('should render', () => {
     
-            it('renders for desktop', () => {
+            it('as expected', () => {
                 const component = shallow(<SearchArea {...props} />);
-    
-                expect(component).toMatchSnapshot();
-            });
-    
-            it('renders for mobile', () => {
-                const component = shallow(<SearchArea isMobile {...props} />);
     
                 expect(component).toMatchSnapshot();
             });

@@ -5,19 +5,13 @@ import {shallow} from 'enzyme';
 describe('Genre.js', () => {
 
     const props = {
-        genres: [' ', ' '],
+        genres: ['Comedy', 'Triller'],
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<Genre {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<Genre {...props} isMobile />);
 
             expect(component).toMatchSnapshot();
         });

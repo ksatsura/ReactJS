@@ -17,5 +17,6 @@ module.exports = {
         '<rootDir>/node_modules/react-addons-test-utils/',
         '<rootDir>/node_modules/fbjs',
         '<rootDir>/node_modules/core-js',
-    ]
+    ],
+    snapshotSerializers: ['enzyme-to-json/serializer'],
 };

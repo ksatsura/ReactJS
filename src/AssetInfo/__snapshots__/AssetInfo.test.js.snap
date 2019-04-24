@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AssetInfo.js renders renders for desktop 1`] = `ShallowWrapper {}`;
-
-exports[`AssetInfo.js renders renders for mobile 1`] = `ShallowWrapper {}`;

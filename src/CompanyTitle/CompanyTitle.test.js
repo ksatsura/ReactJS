@@ -10,11 +10,5 @@ describe('CompanyTitle.js', () => {
             const component = shallow(<CompanyTitle />);
             expect(component).toMatchSnapshot();
         });
-
-        it('renders for mobile', () => {
-            const component = shallow(<CompanyTitle isMobile />);
-
-            expect(component).toMatchSnapshot();
-        });
     });
 });

@@ -13,16 +13,10 @@ describe('FilterButton.js', () => {
         name: '',
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<FilterButton {...props} />);
-
-            expect(component).toMatchSnapshot();
-        });
-
-        it('renders for mobile', () => {
-            const component = shallow(<FilterButton {...props} isMobile />);
 
             expect(component).toMatchSnapshot();
         });
@@ -34,7 +28,7 @@ describe('FilterButton.js', () => {
             
             const component = shallow(<FilterButton {...props} />);
 
-            component.find('button').simulate('click', { target: { id: ' '}});
+            component.find('button').simulate('click', { target: { id: 'vote_average'}});
             expect(props.handleFilterClick.mock.calls.length).toEqual(1);
         });
     });
@@ -50,7 +44,7 @@ describe('FilterButton.js', () => {
             
             const component = shallow(<FilterButton {...otherProps} />);
 
-            component.find('button').simulate('click', { target: { id: ' '}});
+            component.find('button').simulate('click', { target: { id: 'release_date'}});
             expect(props.handleSortClick.mock.calls.length).toEqual(1);
         });
     });

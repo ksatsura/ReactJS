@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterButton.js renders renders for desktop 1`] = `ShallowWrapper {}`;
-
-exports[`FilterButton.js renders renders for mobile 1`] = `ShallowWrapper {}`;
+exports[`FilterButton.js should render as expected 1`] = `
+<button
+  className="search-filter-btn-title"
+  id="title"
+  onClick={[Function]}
+/>
+`;

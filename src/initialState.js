@@ -5,13 +5,13 @@ export const initialState = {
         currentValue: '',
         searchBy: 'title',
         sortBy: 'release_date',
-        assets: [],
-        assetsSameGenre: [],
+        films: [],
+        filmsSameGenre: [],
     },
-    assetReducer: {
-        asset: {
+    filmReducer: {
+        film: {
             genres: [],
         },
-        isAssetClicked: false,
+        isfilmClicked: false,
     }
 };

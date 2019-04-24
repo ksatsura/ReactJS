@@ -5,25 +5,18 @@ import { shallow } from 'enzyme';
 describe('App.js', () => {
 
     const props = {
-        assets: [{}, {}], 
-        isAssetClicked: false, 
+        films: [{}, {}], 
+        isfilmClicked: false, 
         genre: ' ', 
-        assetsSameGenre: [{}, {}]
+        filmsSameGenre: [{}, {}]
     };
 
-    describe('renders', () => {
+    describe('should render', () => {
 
-        it('renders for desktop', () => {
+        it('as expected', () => {
             const component = shallow(<App {...props} />);
 
             expect(component).toMatchSnapshot();
         });
-
-        it('renders for mobile', () => {
-            const component = shallow(<App {...props} isMobile />);
-
-            expect(component).toMatchSnapshot();
-        });
     });
-
 });
