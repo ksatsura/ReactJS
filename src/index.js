@@ -11,7 +11,7 @@ import combinedReducer from './reducers/combinedReducer';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { initialState } from './initialState';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 const loggerMiddleware = createLogger();
 const persistConfig = {
@@ -33,10 +33,20 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
+const Error404 = () => {
+    return <h1>404 Page not found</h1>;
+};
+
 ReactDom.render(
     (<Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-            <Router><Route path="/" component={App} />
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={App} />
+                    <Route path="/film/:id" component={App} />
+                    <Route path="/search/Search :value" component={App} />
+                    <Route path="/" component={Error404} />
+                </Switch>
             </Router>
         </PersistGate>
     </Provider>), document.getElementById('app'));

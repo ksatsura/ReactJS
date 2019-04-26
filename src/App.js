@@ -18,8 +18,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.location.pathname.slice(6);
-        !isNaN(id) && this.props.handleUrlChange(id);
+        const id = this.props.match.params.id;
+        if (id) {
+            this.props.handleUrlChange(id);
+        }
     }
 
     render() {
@@ -39,13 +41,15 @@ class App extends Component {
                 <ErrorBoundary>
                     <Switch>
                         <Route exact path='/' render={() => <ResultsArea genre={genre} filmsNumber={0} /> } />
-                        <Route path='/' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
+                        <Route path='/film/:id' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
+                        <Route path='/search/Search :value' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
                     </Switch>
                 </ErrorBoundary>
                 <ErrorBoundary>
                     <Switch>
                         <Route exact path='/' render={() => <FilmCollection filmsNumber={0} films={[]} filmsSameGenre={filmsSameGenre} /> } />
-                        <Route path='/' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
+                        <Route path='/film/:id' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
+                        <Route path='/search/Search :value' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
                     </Switch>
                 </ErrorBoundary>
                 <Route path='/' render={() => <Footer/> } />
