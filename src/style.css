@@ -166,6 +166,7 @@ body {
 
 .film-asset {
     width: 285px;
+    color: black;
     max-height: 480px;
     margin: 15px 24px;
     border: 1px solid black;
@@ -194,6 +195,7 @@ body {
 }
 
 .film-asset-name {
+    color: black;
     width: 180px;
 }
 
@@ -205,6 +207,7 @@ body {
 .release-date {
     border: 1px solid black;
     height: 18px;
+    text-decoration: none;
 }
 
 .second-title {

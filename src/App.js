@@ -1,42 +1,72 @@
 //imports
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './Header/Header.js';
 import FilmCollection from './FilmCollection/FilmCollection';
 import Footer from './Footer/Footer.js';
 import ResultsArea from './ResultsArea/ResultsArea';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import { fetchRequestIfNeeded } from './redux-utils/asyncActionUtils';
 import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import './style.css';
 
-const App = (props) => {
+class App extends Component {
 
-    const { films, isFilmClicked, genre, filmsSameGenre } = props;
-    const filmsNumber = props.films.length;
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
 
-    return (
-        <div className='app'>
-            <ErrorBoundary>
-                <Header isFilmClicked={isFilmClicked} />
-            </ErrorBoundary>
-            <ErrorBoundary>
-                <ResultsArea isFilmClicked={isFilmClicked} genre={genre} filmsNumber={filmsNumber} />
-            </ErrorBoundary>
-            <ErrorBoundary>
-                <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} isFilmClicked={isFilmClicked} />
-            </ErrorBoundary>
-            <Footer/>
-        </div>
-    );
-};
+    componentDidMount() {
+        const id = this.props.location.pathname.slice(6);
+        !isNaN(id) && this.props.handleUrlChange(id);
+    }
+
+    render() {
+
+        const { films, genre, filmsSameGenre } = this.props;
+        const filmsNumber = this.props.films.length;
+
+        return (
+            <div className='app'>
+                <ErrorBoundary>
+                    <Switch>
+                        <Route path='/' render={() => <Header /> } />
+                        <Route path='/film/:id' render={() => <Header /> } />
+                        <Route path='/search/Search :value' render={() => <Header /> } />
+                    </Switch>
+                </ErrorBoundary>
+                <ErrorBoundary>
+                    <Switch>
+                        <Route exact path='/' render={() => <ResultsArea genre={genre} filmsNumber={0} /> } />
+                        <Route path='/' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
+                    </Switch>
+                </ErrorBoundary>
+                <ErrorBoundary>
+                    <Switch>
+                        <Route exact path='/' render={() => <FilmCollection filmsNumber={0} films={[]} filmsSameGenre={filmsSameGenre} /> } />
+                        <Route path='/' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
+                    </Switch>
+                </ErrorBoundary>
+                <Route path='/' render={() => <Footer/> } />
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = state => {
 
     return {
         films: state.filmListReducer.films,
-        isFilmClicked: state.filmReducer.isFilmClicked,
         genre: state.filmReducer.film.genres[0],
         filmsSameGenre: state.filmListReducer.filmsSameGenre,
     };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        handleUrlChange: (id) => { dispatch(fetchRequestIfNeeded('Drama', true, id)); },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

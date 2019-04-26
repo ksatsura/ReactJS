@@ -5,17 +5,20 @@ import Poster from '../Poster/Poster';
 import { connect } from 'react-redux';
 import { backToSearch } from '../actions/filmActions';
 import CompanyTitle from '../CompanyTitle/CompanyTitle';
+import { Link }  from 'react-router-dom';
 import '../style.css';
 
 export const FilmHeader = (props) => {
 
-    const { film, handleClick } = props;
+    const { film, handleClick, value } = props;
 
     return (
         <div className='film-info'>
             <div className='top-film-info'>
                 <CompanyTitle />
-                <button onClick={handleClick} className='search-navigation'>search</button>
+                <Link to={`/search/Search ${value}`}>
+                    <button onClick={handleClick} className='search-navigation'>search</button>
+                </Link>
             </div>
             <div className='film-poster-data'>
                 <div className='poster'>
@@ -31,6 +34,7 @@ const mapStateToProps = state => {
 
     return {
         film: state.filmReducer.film,
+        value: state.filmListReducer.currentValue,
     };
 };
 

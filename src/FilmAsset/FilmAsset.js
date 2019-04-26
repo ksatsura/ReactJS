@@ -4,6 +4,7 @@ import Poster from '../Poster/Poster';
 import Info from '../Info/Info';
 import { connect } from 'react-redux';
 import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
+import { Link }  from 'react-router-dom';
 import '../style.css';
 
 export const FilmAsset = (props) => {
@@ -11,10 +12,12 @@ export const FilmAsset = (props) => {
     const { film, handleClick } = props;
 
     return (
-        <div id={film.id} className='film-asset' onClick={(e) => handleClick(e, film.genres[0]) }>
-            <Poster url={film.poster_path}  />
-            <Info film={film} />
-        </div>
+        <Link to={`/film/${film.id}`} style={{ textDecoration: 'none' }}>
+            <div id={film.id} className='film-asset' onClick={(e) => handleClick(e, film.genres[0]) }>
+                <Poster url={film.poster_path}  />
+                <Info film={film} />
+            </div>
+        </Link>
     );
 };
 
