@@ -1,34 +1,53 @@
 //imports
-import React from 'react';
+import React, { Component } from 'react';
 import FilterButton from '../FilterButton/FilterButton';
 import { connect } from 'react-redux';
 import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
+import { Link }  from 'react-router-dom';
 
-export const SearchFilter = (props) => {
+export class SearchFilter extends Component {
 
-    const { value, handleSearchBtnClick } = props;
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
 
-    return (
-        <div className='search-buttons'>
-            <div className='search-filter'>
-                <p className='search-filter-title'>search by</p>
-                <FilterButton id='title' name='title' />
-                <FilterButton id='genre' name='genre' />
+    componentDidUpdate(prevProps) {
+        if (this.props.paramValue !== prevProps.paramValue) {
+            this.props.handleUrlChange(this.props.paramValue);
+        }
+    }
+
+    componentDidMount() {
+        this.props.paramValue && this.props.handleUrlChange(this.props.paramValue);
+    }
+
+    render() {
+        return (
+            <div className='search-buttons'>
+                <div className='search-filter'>
+                    <p className='search-filter-title'>search by</p>
+                    <FilterButton id='title' name='title' />
+                    <FilterButton id='genre' name='genre' />
+                </div>
+                <Link to={`/search/Search ${this.props.value}`}>
+                    <input type="submit" value="Search" className='search-button' />
+                </Link>
             </div>
-            <input type="submit" value="Search" className='search-button' onClick={() => handleSearchBtnClick(value) }/>
-        </div>
-    );
-};
+        );
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleSearchBtnClick: (value) => dispatch(fetchRequestIfNeeded(value)),
+        handleUrlChange: (value) => dispatch(fetchRequestIfNeeded(value)),
     };
 };
 
 const mapStateToProps = state => {
     return {
         value: state.filmListReducer.currentValue,
+
     };
 };
 

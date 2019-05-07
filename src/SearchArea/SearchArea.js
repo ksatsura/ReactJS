@@ -6,13 +6,16 @@ import { saveInputValue } from '../actions/searchActions';
 import '../style.css';
 
 export const SearchArea = (props) => {
-    const { value, handleChange } = props;
+
+    const { value, handleChange, match } = props;
+
+    const paramValue = match && match.params.value;
 
     return (
         <div className='search-area'>
             <h1 className='search-title'>find your movie</h1>
             <input type="search" name="search-value" className='search-value' value={value} onChange={(e) => handleChange(e.target.value)} />
-            <SearchFilter />
+            <SearchFilter location={location} paramValue={paramValue} />
         </div>
     );  
 };
