@@ -12,7 +12,7 @@ const SearchHeader = () => {
             <Route path='/' component={ CompanyTitle } />
             <Switch>
                 <Route exact path='/' render={() =>  <SearchArea /> } />
-                <Route path='/search/Search :value' render={props =>  <SearchArea  location={props.location} match={props.match} /> } />
+                <Route path='/search/:value' render={props =>  <SearchArea  location={props.location} match={props.match} /> } />
             </Switch>
         </div>
     );

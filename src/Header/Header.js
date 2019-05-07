@@ -12,7 +12,7 @@ export const Header = () => {
             <Switch>
                 <Route path='/film/:id' render={() => <FilmHeader /> } /> 
                 <Route path='/' render={ () => <SearchHeader /> } /> 
-                <Route path='/search/Search :value' render={() => <SearchHeader /> } />
+                <Route path='/search/:value' render={() => <SearchHeader /> } />
             </Switch>
         </div>
     );

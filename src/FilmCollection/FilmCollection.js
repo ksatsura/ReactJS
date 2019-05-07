@@ -22,7 +22,7 @@ const FilmCollection = (props) => {
         <div className='films-container'>
             { filmsNumber > 0 
                 ? (<Switch>
-                    <Route path='/search/Search :value' render={() => searchFilmCollection } />
+                    <Route path='/search/:value' render={() => searchFilmCollection } />
                     <Route path='/film/:id' render={() => filmSameGenreCollection } />
                 </Switch>)
                 : <p className='no-films'>No films found</p> 
