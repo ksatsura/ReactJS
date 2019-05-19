@@ -7,7 +7,7 @@ import '../style.css';
 
 export const SearchArea = (props) => {
 
-    const { value, handleChange, match } = props;
+    const { value, handleChange, match, location } = props;
 
     const paramValue = match && match.params.value;
 

@@ -1,23 +1,24 @@
-import path from 'path';
 import Express from 'express';
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
-import combinedReducer from '../src/reducers/combinedReducer';
 import { renderToString } from 'react-dom/server';
 import { initialState } from '../src/initialState';
 import renderFullPage from '../src/renderFullPage';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import combinedReducer from '../src/reducers/combinedReducer';
+import { Error404 } from '../src/Error404/Error404';
 import App from '../src/App';
+
+const history = createMemoryHistory();
 
 const app = Express();
 const port = 3000;
 
-const staticPath = path.join(__dirname, '../dist/');
-app.use(Express.static(staticPath));
-
-// //Serve static files
-// app.use('/static', Express.static('static'))
+//Serve static files
+app.use('/dist', Express.static('dist'));
 
 app.use(handleRender);
 
@@ -34,7 +35,14 @@ function handleRender(req, res) {
     // Render the component to a string
     const html = renderToString(
         <Provider store={store}>
-            <App />
+            <Router history={history} location={req.path}>
+                <Switch>
+                    <Route exact path="/" component={App} />
+                    <Route path="/film/:id" component={App} />
+                    <Route path="/search/:value" component={App} />
+                    <Route path="/" component={Error404} />
+                </Switch>
+            </Router>
         </Provider>
     );
 
@@ -44,8 +52,6 @@ function handleRender(req, res) {
     // Send the rendered page back to the client
     res.send(renderFullPage(html, preloadedState));
 }
-
-// renderFullPage(html, preloadedState);
 
 app.set('port', port);
 
