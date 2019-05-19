@@ -1,6 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     context: path.join(__dirname, ''),
@@ -30,9 +31,11 @@ module.exports = {
         new ExtractTextPlugin({filename: 'style.css'}),
         new HtmlWebpackPlugin({
             title: 'Production',
-            //template: './src/index.html'
+            template: './server/index.html'
         })
     ],
+    externals: [nodeExternals()],
+    devtool: 'source-map',
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
@@ -40,5 +43,7 @@ module.exports = {
         filename: 'server.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
+        libraryTarget: 'commonjs2',
+        //globalObject: 'this'
     },
 };

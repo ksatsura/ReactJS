@@ -11,6 +11,7 @@ import combinedReducer from './reducers/combinedReducer';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 // import { initialState } from './initialState';
+import { Error404 } from './Error404/Error404';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 const loggerMiddleware = createLogger();
@@ -32,16 +33,6 @@ export const store = createStore(
     )
 );
 const persistor = persistStore(store);
-
-
-
-// if (process.env.NODE_ENV !== 'production') {
-//     console.log('Looks like we are in development mode!');
-// }
-
-const Error404 = () => {
-    return <h1>404 Page not found</h1>;
-};
 
 hydrate(
     (<Provider store={store}>

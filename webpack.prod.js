@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const server = require('./webpack.server.js');
 const TerserPlugin = require('terser-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
 
 module.exports = merge(server, {
     mode: 'production',
@@ -15,5 +14,5 @@ module.exports = merge(server, {
         ],
     },
     target: 'node',
-    externals: [nodeExternals()],
+    //module: 'commonjs',
 });

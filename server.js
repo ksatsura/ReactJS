@@ -14,7 +14,7 @@ const app = Express();
 const port = 3000;
 
 const staticPath = path.join(__dirname, '../dist/');
-app.use(express.static(staticPath));
+app.use(Express.static(staticPath));
 
 // //Serve static files
 // app.use('/static', Express.static('static'))

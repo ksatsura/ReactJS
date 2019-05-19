@@ -16,7 +16,7 @@ export default function renderFullPage(html, preloadedState) {
         '\\u003c'
     )}
           </script>
-          <script src="/dist/server.js"></script>
+          <script type="text/javascript" src="/dist/server.js"></script>
         </body>
       </html>`;
 }
