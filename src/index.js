@@ -11,7 +11,7 @@ import combinedReducer from './reducers/combinedReducer';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { initialState } from './initialState';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const loggerMiddleware = createLogger();
 const persistConfig = {
@@ -44,7 +44,7 @@ ReactDom.render(
                 <Switch>
                     <Route exact path="/" component={App} />
                     <Route path="/film/:id" component={App} />
-                    <Route path="/search/Search :value" component={App} />
+                    <Route path="/search/:value" component={App} />
                     <Route path="/" component={Error404} />
                 </Switch>
             </Router>

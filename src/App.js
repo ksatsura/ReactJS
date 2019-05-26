@@ -35,21 +35,21 @@ class App extends Component {
                     <Switch>
                         <Route path='/' render={() => <Header /> } />
                         <Route path='/film/:id' render={() => <Header /> } />
-                        <Route path='/search/Search :value' render={() => <Header /> } />
+                        <Route path='/search/:value' render={() => <Header /> } />
                     </Switch>
                 </ErrorBoundary>
                 <ErrorBoundary>
                     <Switch>
                         <Route exact path='/' render={() => <ResultsArea genre={genre} filmsNumber={0} /> } />
                         <Route path='/film/:id' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
-                        <Route path='/search/Search :value' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
+                        <Route path='/search/:value' render={() => <ResultsArea genre={genre} filmsNumber={filmsNumber} /> } />
                     </Switch>
                 </ErrorBoundary>
                 <ErrorBoundary>
                     <Switch>
                         <Route exact path='/' render={() => <FilmCollection filmsNumber={0} films={[]} filmsSameGenre={filmsSameGenre} /> } />
                         <Route path='/film/:id' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
-                        <Route path='/search/Search :value' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
+                        <Route path='/search/:value' render={() => <FilmCollection filmsNumber={filmsNumber} films={films} filmsSameGenre={filmsSameGenre} /> } />
                     </Switch>
                 </ErrorBoundary>
                 <Route path='/' render={() => <Footer/> } />

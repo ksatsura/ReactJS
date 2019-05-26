@@ -16,7 +16,7 @@ export const FilmHeader = (props) => {
         <div className='film-info'>
             <div className='top-film-info'>
                 <CompanyTitle />
-                <Link to={`/search/Search ${value}`}>
+                <Link to={`/search/${value}`}>
                     <button onClick={handleClick} className='search-navigation'>search</button>
                 </Link>
             </div>

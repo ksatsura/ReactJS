@@ -30,7 +30,7 @@ export class SearchFilter extends Component {
                     <FilterButton id='title' name='title' />
                     <FilterButton id='genre' name='genre' />
                 </div>
-                <Link to={`/search/Search ${this.props.value}`}>
+                <Link to={`/search/${this.props.value}`}>
                     <input type="submit" value="Search" className='search-button' />
                 </Link>
             </div>
