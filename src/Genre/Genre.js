@@ -1,8 +1,13 @@
 //imports
-import React from 'react';
+import * as React from 'react';
 import '../style.css';
 
-const Genre = (props) => {
+// @flow
+type Props = {
+    genres: Array<string>
+};
+
+const Genre = (props: Props) => {
     
     const genres = props.genres.join(' & ');
 

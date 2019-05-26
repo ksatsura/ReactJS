@@ -1,8 +1,13 @@
 //imports
-import React from 'react';
+import * as React from 'react';
 import '../style.css';
 
-const FilmName = (props) => {
+// @flow
+type Props = {
+    title: string
+};
+
+const FilmName = (props: Props) => {
 
     return <p className='film-asset-name'>{props.title}</p>;
 };

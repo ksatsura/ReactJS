@@ -1,8 +1,20 @@
 //imports
-import React from 'react';
+import * as React from 'react';
 import '../style.css';
 
-const FilmInfo = (props) => {
+// @flow
+type Props = {
+    film: {
+        title: string,
+        vote_average: string,
+        tagline: string,
+        release_date: string,
+        runtime: string,
+        overview: string
+    }
+};
+
+const FilmInfo = (props: Props) => {
 
     const { film } = props;
 

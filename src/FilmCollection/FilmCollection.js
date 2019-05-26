@@ -1,12 +1,19 @@
 //imports
-import React from 'react';
+import * as React from 'react';
 import FilmAsset from '../FilmAsset/FilmAsset';
 import '../style.css';
 import { Route, Switch }  from 'react-router-dom';
 //constants
 const key = 'qwert1';
 
-const FilmCollection = (props) => {
+// @flow
+type Props = {
+    films: Array<{}>,
+    filmsNumber: number,
+    filmsSameGenre: Array<{}>,
+};
+
+const FilmCollection = (props: Props) => {
 
     const { films, filmsNumber, filmsSameGenre } = props;
 

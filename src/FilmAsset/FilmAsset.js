@@ -1,5 +1,5 @@
 //imports
-import React from 'react';
+import * as React from 'react';
 import Poster from '../Poster/Poster';
 import Info from '../Info/Info';
 import { connect } from 'react-redux';
@@ -7,7 +7,17 @@ import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
 import { Link }  from 'react-router-dom';
 import '../style.css';
 
-export const FilmAsset = (props) => {
+// @flow
+type Props = {
+    film: {
+        id: string,
+        poster_path: string,
+        genres: Array<string>,
+    },
+    handleClick: (e: SyntheticEvent<>, genre: string) => void,
+};
+
+export const FilmAsset = (props: Props) => {
 
     const { film, handleClick } = props;
 

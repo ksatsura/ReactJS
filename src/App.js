@@ -1,5 +1,5 @@
 //imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import Header from './Header/Header.js';
 import FilmCollection from './FilmCollection/FilmCollection';
 import Footer from './Footer/Footer.js';
@@ -8,19 +8,35 @@ import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import { fetchRequestIfNeeded } from './redux-utils/asyncActionUtils';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 import './style.css';
 
-class App extends Component {
+const AppDiv = styled.div`
+    font-family: Arial;
+    width: 100%;
+    height: 100%;
+`;
 
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
+
+// @flow
+type Props = {
+    films: Array<{}>, 
+    genre: string, 
+    filmsSameGenre: Array<{}>,
+    match: {
+        params: {
+            id: string
+        }
+    },
+    handleUrlChange: (string) => void
+};
+
+class App extends React.Component<Props> {
 
     componentDidMount() {
         const id = this.props.match.params.id;
         if (id) {
-            this.props.handleUrlChange(id);
+            this.props.handleUrlChange(this.props.genre, id);
         }
     }
 
@@ -30,7 +46,7 @@ class App extends Component {
         const filmsNumber = this.props.films.length;
 
         return (
-            <div className='app'>
+            <AppDiv>
                 <ErrorBoundary>
                     <Switch>
                         <Route path='/' render={() => <Header /> } />
@@ -53,7 +69,7 @@ class App extends Component {
                     </Switch>
                 </ErrorBoundary>
                 <Route path='/' render={() => <Footer/> } />
-            </div>
+            </AppDiv>
         );
     }
 }
@@ -62,14 +78,14 @@ const mapStateToProps = state => {
 
     return {
         films: state.filmListReducer.films,
-        genre: state.filmReducer.film.genres[0],
+        genre: (state.filmReducer.film.genres && state.filmReducer.film.genres[0]) || 'Drama',
         filmsSameGenre: state.filmListReducer.filmsSameGenre,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleUrlChange: (id) => { dispatch(fetchRequestIfNeeded('Drama', true, id)); },
+        handleUrlChange: (genre, id) => { dispatch(fetchRequestIfNeeded(genre, true, id)); },
     };
 };
 

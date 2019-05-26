@@ -1,16 +1,18 @@
 //imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import FilterButton from '../FilterButton/FilterButton';
 import { connect } from 'react-redux';
 import { fetchRequestIfNeeded } from '../redux-utils/asyncActionUtils';
 import { Link }  from 'react-router-dom';
 
-export class SearchFilter extends Component {
+// @flow
+type Props = {
+    paramValue: string, 
+    handleUrlChange: (string) => void,
+    value: string,
+};
 
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
+export class SearchFilter extends React.Component<Props> {
 
     componentDidUpdate(prevProps) {
         if (this.props.paramValue !== prevProps.paramValue) {

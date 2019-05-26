@@ -1,8 +1,12 @@
 //imports
-import React from 'react';
-import '../style.css';
+import * as React from 'react';
 
-const Poster = (props) => {
+// @flow
+type Props = {
+    url: string
+};
+
+const Poster = (props: Props) => {
     
     return <img src={props.url} alt='Poster' height='400px' width='285p' />;
 };

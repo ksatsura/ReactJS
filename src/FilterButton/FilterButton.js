@@ -1,11 +1,21 @@
 //imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { connect } from  'react-redux';
 import { toggleSearchFilter, toggleSortFilter } from '../actions/searchActions';
 import '../style.css';
 
-export const FilterButton = (props) => {
+// @flow
+type Props = {
+    id: string, 
+    searchBy: string, 
+    sortBy: string, 
+    handleFilterClick: (id: string) =>  void, 
+    handleSortClick: (id: string) =>  void, 
+    name: string,
+};
+
+export const FilterButton = (props: Props) => {
 
     const { id, searchBy, sortBy, handleFilterClick, handleSortClick, name } = props;
     const handleClick = (id === 'title' || id === 'genre') ? handleFilterClick : handleSortClick;

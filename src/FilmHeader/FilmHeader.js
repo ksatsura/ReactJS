@@ -1,5 +1,5 @@
 //imports
-import React from 'react';
+import * as React from 'react';
 import FilmInfo from '../FilmInfo/FilmInfo';
 import Poster from '../Poster/Poster';
 import { connect } from 'react-redux';
@@ -8,7 +8,18 @@ import CompanyTitle from '../CompanyTitle/CompanyTitle';
 import { Link }  from 'react-router-dom';
 import '../style.css';
 
-export const FilmHeader = (props) => {
+// @flow
+type Props = {
+    film: {
+        poster_path: string,
+
+    },
+    handleClick: () =>  void,
+    filmsSameGenre: Array<{}>,
+    value: string
+};
+
+export const FilmHeader = (props: Props) => {
 
     const { film, handleClick, value } = props;
 

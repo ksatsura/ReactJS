@@ -1,10 +1,22 @@
 //imports
-import React from 'react';
+import * as React from 'react';
+import styled from 'styled-components';
 import '../style.css';
 
-const ReleaseDate = (props) => {
+const ReleaseDateP = styled.p`
+    border: 1px solid black;
+    height: 18px;
+    text-decoration: none;
+`;
 
-    return <p className='release-date'>{props.date}</p>;
+// @flow
+type Props = {
+    date: string
+};
+
+const ReleaseDate = (props: Props) => {
+
+    return <ReleaseDateP>{props.date}</ReleaseDateP>;
 };
 
 export default ReleaseDate;
