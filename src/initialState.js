@@ -12,6 +12,5 @@ export const initialState = {
         film: {
             genres: [],
         },
-        isFilmClicked: false,
     }
 };
